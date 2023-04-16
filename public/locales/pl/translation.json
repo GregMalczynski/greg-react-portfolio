@@ -1,0 +1,112 @@
+{
+    "Nav": {
+        "Menu": {
+            "1": "Strona główna",
+            "2": "O Mnie",
+            "3": "Doświadczenie",
+            "4": "Portfolio",
+            "5": "Kontakt"
+        },
+        "Mode": {
+            "1": "ColorMode",
+            "2": "Bright",
+            "3": "Dark"
+        }
+    },
+    "Home": {
+        "1": "Witaj, jestem",
+        "2": "Front-End Developer/<br>Graphic Designer",
+        "3": "Uwielbiam projektować i tworzyć Aplikacje i Strony internetowe..."
+    },
+    "About": {
+        "Front": {
+            "1": "TROCHĘ O",
+            "2": "FRONT-END DEVELOPERCE",
+            "3": "Front-End Developer z 2-letnim doświadczeniem jako freelancer oraz grafik i projektant z ponad 10-letnim doświadczeniem.Z szeroko pojętą informatyką zetknąłem się już w szkole podstawowej poprzez programowanie w Basicu i Pascalu, co pozwoliło mi zrozumieć mechanikę działania kodu, a także grafikę komputerową."
+        },
+        "Graphic": {
+            "1": "TROCHĘ O",
+            "2": "PROJEKTOWANIU GRAFICZNYM",
+            "3": "Grafik z ponad 10-letnim doświadczeniem, ponad 1000 zrealizowanych projektów dla klientów międzynarodowych. Bardzo dobra zmanomość projektowania UI/UX."
+        }
+    },
+    "Experience": {
+        "Title": "DOŚWIADCZENIE",
+        "Subtitle": "GRZIE BYŁEM, CO ROBIŁEM",
+        "1": {
+            "JobTitle": "Freelancer Graphic Designer / Front-End Developer / 3D Designer",
+            "Description": [
+                "Tworzenie Landing Pages oraz prostych stron / aplikacji internetowych z wykorzystaniem HTML5, CSS, JavaScript,",
+                "Budowanie komponentów i nowych funkcjonalności z wykorzystaniem ReactJs, wykorzystanie Styled-Components w stylizacji,",
+                "Działania związane z identyfikacją wizualną (logo, branding),",
+                "Projektowanie grafiki, layoutów i makiet stron internetowych, aplikacji z wykorzystaniem Adobe Photoshop, Adobe Illustrator , Figma, Adobe XD,",
+                "Wizualizacje wnętrz z wykorzystaniem programu SketchUp oraz fotorealistycznego renderingu V-Ray."
+            ]
+        },
+        "2": {
+            "JobTitle": "Freelancer Graphic Designer / Front-End Developer / 3D Designer",
+            "Description": [
+                "Tworzenie Landing Pages oraz prostych stron / aplikacji internetowych z wykorzystaniem HTML5, CSS, JavaScript,",
+                "Budowanie komponentów i nowych funkcjonalności z wykorzystaniem ReactJs, wykorzystanie Styled-Components w stylizacji,",
+                "Działania związane z identyfikacją wizualną (logo, branding),",
+                "Projektowanie grafiki, layoutów i makiet stron internetowych, aplikacji z wykorzystaniem Adobe Photoshop, Adobe Illustrator , Figma, Adobe XD,"
+            ]
+        },
+        "3": {
+            "JobTitle": "3D Artist, Flash Designer / Developer, Front-End Developer",
+            "Description": [
+                "Tworzenie krótkich filmów produktowych w oparciu o grafikę 3D (modelowanie 3D, montaż wideo, postprodukcja) z wykorzystaniem 3D Studio Max, Adobe Premiere i Adobe After Effects,",
+                "Tworzenie komponentów Flsh,",
+                "Projektowanie i budowanie stron internetowych w oparciu o HTML, CSS i Flash / ActionScript"
+            ]
+        },
+        "4": {
+            "JobTitle": "Freelancer, Graphic Designer, Flash Developer",
+            "Description": [
+                "Tworzenie animacji i interaktywnych stron internetowych w Macromedia Flash z wykorzystaniem języka ActionScript,",
+                "Projektowanie layoutów stron internetowych ( Photoshop, Illustrator ),",
+                "Projektowanie i budowanie stron internetowych w oparciu o HTML, CSS i Flash / ActionScript"
+            ]
+        },
+        "5": {
+            "JobTitle": "Freelancer, Graphic Designer, Flash Developer",
+            "Description": [
+                "Projektowanie UI w oparciu o Macromedia Flash,ActionScript i HTML,",
+                "Projektowanie layoutów stron internetowych w programie Adobe Photoshop,",
+                "Prezentacje stworzonych projektów."
+            ]
+        }
+    },
+    "Portfolio": {
+        "Title": "PORTFOLIO",
+        "Subtitle": "KILKA MOICH PROJEKTÓW",
+        "Technologies": "Użyte Technologie",
+        "List": [
+            {
+                "PreTitle": "Latest Project",
+                "Title": "GREG'S PORTFOLIO WEBSITE",
+                "Description": "Jest to strona internatowa poświęcona mojej osobie jako FRONT-END DEVELOPER oraz GRPAHIC DESIGNER. Można zobaczyć tutaj jak koduję oraz jak rysuję a także dowiedzieć się więcej informacji o mnie."
+            },
+            {
+                "PreTitle": "App",
+                "Title": "CHAT GPT APP",
+                "Description": "Jest to aplikacja oparta na OpenAI ChatGTP. Po podaniu swojego imienia, możesz wybrać 6 tematów rozmowy z AI. Po wybraniu jednego z nich wyświetla czat, na którym można porozmawiać."
+            },
+            {
+                "PreTitle": "App",
+                "Title": "CHAT GPT APP",
+                "Description": "It is an application based on OpenAI ChatGTP. After giving your name, you can choose 6 topics of conversation with AI. When you select one of them, it displays a chat where you can chat."
+            },
+            {
+                "PreTitle": "App",
+                "Title": "CHAT GPT APP",
+                "Description": "It is an application based on OpenAI ChatGTP. After giving your name, you can choose 6 topics of conversation with AI. When you select one of them, it displays a chat where you can chat."
+            }
+        ]
+    },
+    "Contact": {
+        "Title": "KONTAKT",
+        "Subtitle": "ODEZWIJ SIĘ",
+        "Description": "Chociaż obecnie nie szukam żadnych nowych możliwości, moja skrzynka pocztowa jest zawsze otwarta. Niezależnie od tego, czy masz pytanie, czy chcesz się tylko przywitać, postaram się jak najlepiej do Ciebie odezwać!"
+    }
+}

@@ -1,0 +1,112 @@
+{
+    "Nav": {
+        "Menu": {
+            "1": "Home",
+            "2": "About",
+            "3": "Experience",
+            "4": "Portfolio",
+            "5": "Contact"
+        },
+        "Mode": {
+            "1": "ColorMode",
+            "2": "Bright",
+            "3": "Dark"
+        }
+    },
+    "Home": {
+        "1": "Hi there, I'am",
+        "2": "Front-End Developer/<br>Graphic Designer",
+        "3": "I love build and design Apps and Websites..."
+    },
+    "About": {
+        "Front": {
+            "1": "ABOUT",
+            "2": "FRONT-END DEVELOPER",
+            "3": "Front-End Developer with 2 years of experience as a freelancer, and graphic designer and designer with over 10 years of experience.I was exposed to the broader concept of computer science as early as elementary school through Basic and Pascal programming, which allowed me to understand the mechanics of how code works, as well as computer graphics."
+        },
+        "Graphic": {
+            "1": "ABOUT",
+            "2": "GRAPHIC DESIGNER",
+            "3": "Front-End Developer with 2 years of experience as a freelancer, and graphic designer and designer with over 10 years of experience.I was exposed to the broader concept of computer science as early as elementary school through Basic and Pascal programming, which allowed me to understand the mechanics of how code works, as well as computer graphics."
+        }
+    },
+    "Experience": {
+        "Title": "EXPERIENCE",
+        "Subtitle": "WHERE I'VE BEEN, WHAT I DID",
+        "1": {
+            "JobTitle": "Freelancer Graphic Designer / Front-End Developer / 3D Designer",
+            "Description": [
+                "Creating Landing Pages and simple web pages / applications using HTML5, CSS, JavaScript,",
+                "Building components and new functionalities using ReactJs, using Styled-Components in styling,",
+                "Visual identity activities (logos, branding),",
+                "Designing graphics, layouts and mockups of websites, applications using Adobe Photoshop, Adobe Illustrator , Figma, Adobe XD,",
+                "Interior visualization using SketchUp and V-Ray photorealistic rendering."
+            ]
+        },
+        "2": {
+            "JobTitle": "Freelancer Graphic Designer / Front-End Developer / 3D Designer",
+            "Description": [
+                "Creating Landing Pages and simple web pages / applications using HTML5, CSS, JavaScript,",
+                "Building components and new functionalities using ReactJs, using Styled-Components in styling,",
+                "Visual identity activities (logos, branding),",
+                "Designing graphics, layouts and mockups of websites, applications using Adobe Photoshop, Adobe Illustrator , Figma, Adobe XD,"
+            ]
+        },
+        "3": {
+            "JobTitle": "3D Artist, Flash Designer / Developer, Front-End Developer",
+            "Description": [
+                "Creating short product videos based on 3D graphics (3D modeling, video editing, post-production) using 3D Studio Max, Adobe Premiere and Adobe After Effects, ",
+                "Creating Flash components,",
+                "Designing and building websites based on HTML, CSS and Flash / ActionScript"
+            ]
+        },
+        "4": {
+            "JobTitle": "Freelancer, Graphic Designer, Flash Developer",
+            "Description": [
+                "Creation of animations and interactive websites in Macromedia Flash using ActionScript, ",
+                "Layout design of websites ( Photoshop, Illustrator ),",
+                "Graphic design ( branding, DTP ) "
+            ]
+        },
+        "5": {
+            "JobTitle": "Freelancer, Graphic Designer, Flash Developer",
+            "Description": [
+                "UI design based on Macromedia Flash,ActionScript and HTML,",
+                "Layout design of web pages in Adobe Photoshop,",
+                "Presentations of the created projects."
+            ]
+        }
+    },
+    "Portfolio": {
+        "Title": "PORTFOLIO",
+        "Subtitle": "A LITTLE BIT OF MY PROJECTS",
+        "Technologies": "Used Technologies",
+        "List": [
+            {
+                "PreTitle": "Latest Project",
+                "Title": "GREG'S PORTFOLIO WEBSITE",
+                "Description": "This is an internet site dedicated to me as a FRONT-END DEVELOPER and GRPAHIC DESIGNER. You can see here how I code and how I draw and also learn more information about me."
+            },
+            {
+                "PreTitle": "App",
+                "Title": "CHAT GPT APP",
+                "Description": "It is an application based on OpenAI ChatGTP. After giving your name, you can choose 6 topics of conversation with AI. When you select one of them, it displays a chat where you can chat."
+            },
+            {
+                "PreTitle": "App",
+                "Title": "JAVASCRIPT DRUM MACHINE",
+                "Description": "It is an application based on OpenAI ChatGTP. After giving your name, you can choose 6 topics of conversation with AI. When you select one of them, it displays a chat where you can chat."
+            },
+            {
+                "PreTitle": "App",
+                "Title": "UNIQUE TODO LIST",
+                "Description": "It is an application based on OpenAI ChatGTP. After giving your name, you can choose 6 topics of conversation with AI. When you select one of them, it displays a chat where you can chat."
+            }
+        ]
+    },
+    "Contact": {
+        "Title": "CONTACT",
+        "Subtitle": "GET IN TOUCH",
+        "Description": "Although I’m not currently looking for any new opportunities, my inbox is always open. Whether you have a question or just want to say hi, I’ll try my best to get back to you!"
+    }
+}

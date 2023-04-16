@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;600;800&display=swap');
+
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  width: 100%;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+b {
+  font-family: 'Barlow', sans-serif;
+  font-weight: 600;
+}
+p, a{
+  font-size: 16px;
+}
+h2 {
+  font-family: 'Montserrat', sans-serif;
+}
+
+h3, h4, p, a, button, li {
+  font-family: 'Barlow', sans-serif;
+}
