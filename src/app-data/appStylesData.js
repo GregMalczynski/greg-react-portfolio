@@ -6,21 +6,21 @@ export const appStylesData = {
                     lineHeight: '4.6vw',
                 },
                 h2: {
-                    fontSize: '3vw',
+                    fontSize: '2.6vw',
                     fontWeight: '800',
-                    lineHeight: '3vw',
+                    lineHeight: '2.6vw',
                 },
                 h3: {
                     fontSize: '1.8vw',
                     fontWeight: '400',
                 },
                 h4: {
-                    fontSize: '24px',
+                    fontSize: '22px',
                     fontWeight: '400',
                     color: '',
                 },
                 p: {
-                    fontSize: '18px',
+                    fontSize: '16px',
                     fontWeight: '400',
                     color: '',
                 },
@@ -48,8 +48,8 @@ export const appStylesData = {
                     fontWeight: '400',
                 },
                 h4: {
-                    fontSize: '',
-                    fontWeight: '',
+                    fontSize: '16px',
+                    fontWeight: '400',
                     color: '',
                 },
                 p: {

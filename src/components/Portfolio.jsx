@@ -6,7 +6,7 @@ import { portfolioData } from '../app-data/portfolioData';
 import { AppMinResContext } from '../context/AppMinResContext';
 import { appStylesData } from '../app-data/appStylesData';
 import { useTranslation } from 'react-i18next';
-import svgMask from '../../public/portfolio-mask.svg'
+import svgMask from '../../public/portfolio-mask.svg';
 
 const Portfolio = () => {
 
@@ -19,7 +19,7 @@ const Portfolio = () => {
             <PortfolioContainer key={index} reverse={item.reverse}>
                 <MaskWrapper reverse={item.reverse} svgMask={svgMask}>
                 <div>
-                <img className='clip-svg' src='./screenshot/portfolio-1.jpg' />
+                <img className='clip-svg' src={item.img} />
                     <svg x="0px" y="0px" >
                         <defs>
                             <clipPath id='myClip'>
@@ -31,7 +31,7 @@ const Portfolio = () => {
                 </MaskWrapper>
                 <ContentWrapper reverse={item.reverse}>
                     <div className='text-wrapper'>
-                        <h3 style={isMinRes ? {...appStylesData.minRes.h3} : {...appStylesData.maxRes.h3}}>{t(`Portfolio.List.${index}.PreTitle`)}</h3>
+                        <h4 style={isMinRes ? {...appStylesData.minRes.h4} : {...appStylesData.maxRes.h4}}>{t(`Portfolio.List.${index}.PreTitle`)}</h4>
                         <h2>{t(`Portfolio.List.${index}.Title`)}</h2>
                         <br />
                         <hr />
@@ -39,11 +39,11 @@ const Portfolio = () => {
                     </div>
                     <Description brightMode={brightMode}>
                         <div>
-                            <p>{t(`Portfolio.List.${index}.Description`)}</p>
+                            <p style={isMinRes ? {...appStylesData.minRes.p} : {...appStylesData.maxRes.p}}>{t(`Portfolio.List.${index}.Description`)}</p>
                         </div>
                     </Description>
                     <TechnologiesWrapper reverse={item.reverse}>
-                        <p style={brightMode ? {color: '#5F5F92'} : {color: 'white'}}>{t(`Portfolio.Technologies`)} </p> {item.technologies.map((item, index) => <SmallBox key={index} brightMode={brightMode}><p>{item}</p></SmallBox>)}
+                        <p style={brightMode ? {color: '#5F5F92'} : {color: 'white'}}>{t(`Portfolio.Technologies`)}</p> {item.technologies.map((item, index) => <SmallBox key={index} brightMode={brightMode}><p>{item}</p></SmallBox>)}
                     </TechnologiesWrapper>
                     <IconsWrapper reverse={item.reverse}>
                         <img src='./ico-github-dark.svg' />
@@ -94,7 +94,7 @@ const Container = styled.div`
         background: linear-gradient(to right, #F99055 10%, #B94971 45%);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
-        filter: ${props => props.brightMode? 'drop-shadow(8px 8px #BED4A9)' : 'drop-shadow(8px 8px #262147)'};
+        filter: ${props => props.brightMode ? 'drop-shadow(0.5vw 0.5vw #dadaf2)' : 'drop-shadow(0.5vw 0.5vw #262147)'};
     }
     h2{
         color: ${props => props.brightMode? '#4F4E66' : '#ffffff'};

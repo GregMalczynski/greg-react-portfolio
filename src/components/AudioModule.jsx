@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect } from 'react';
 import styled from "styled-components";
 
 const audioUrl = './sounds/zhane-rl.mp3';
@@ -17,11 +17,6 @@ const AudioModule = () => {
             audio.pause();
         }
     }, [isPlay])
-
-    useEffect(() => {
-        audio.play();
-    }, [])
-
 
     return(
         <Wrapper>

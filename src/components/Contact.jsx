@@ -21,16 +21,16 @@ return(
                 <h2 brightMode={brightMode} style={isMinRes ? {...appStylesData.minRes.h2} : {...appStylesData.maxRes.h2}}>{t('Contact.Subtitle')}</h2>
                 </div>
                 <Img>
-                    <img src='./contact-image.svg' />
+                    {brightMode ? <img src='./contact-image-bright.svg' /> : <img src='./contact-image.svg' />}
                 </Img>
-                <p>{t('Contact.Description')}</p>
+                <p style={isMinRes ? {...appStylesData.minRes.p} : {...appStylesData.maxRes.p}}>{t('Contact.Description')}</p>
                 <Button brightMode={brightMode}>
                     <p>Send Message</p>
                 </Button>
                 <IconsWrapper>
-                        <img src='./ico-linked-dark.svg' />
-                        <img src='./ico-github-dark.svg' />
-                        <img src='./ico-codewarz-dark.svg' />
+                    <a href='https://www.linkedin.com/in/grzegorz-malczynski' target='_blank' ><img src='./ico-linked-dark.svg' /></a>
+                    <a href='https://github.com/GregMalczynski' target='_blank' ><img src='./ico-github-dark.svg' /></a>
+                    <a href='https://www.codewars.com/users/GregoryMalczynski' target='_blank' ><img src='./ico-codewarz-dark.svg' /></a>
                 </IconsWrapper>
                 <Footer>
                     <p style={{fontSize: '14px'}}>Project / Draw / Designed / Code</p>
@@ -69,7 +69,7 @@ const Container = styled.div`
         background: linear-gradient(to right, #F99055 10%, #B94971 50%);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
-        filter: ${props => props.brightMode ? 'drop-shadow(8px 8px #BED4A9)' : 'drop-shadow(8px 8px #262147)'};
+        filter: ${props => props.brightMode ? 'drop-shadow(0.5vw 0.5vw #dadaf2)' : 'drop-shadow(0.5vw 0.5vw #262147)'};
     }
     h2, h3, h4 {
         color: white;

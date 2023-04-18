@@ -9,6 +9,8 @@ import { AppMinResContext } from '../context/AppMinResContext';
 const Nav = () => {
 
     const { t, i18n } = useTranslation();
+    const [ scrollValueY, setScrollValueY ] = useState(0);
+    const [ isScroll, setIsScroll ] = useState(false);
 
     const {brightMode, setBrightMode} = useContext(AppMode);
     const {isPlLang, setIsPlLang} = useContext(AppLang);
@@ -24,8 +26,26 @@ const Nav = () => {
         isMinRes ? setShowSlideMenu(false) : setShowSlideMenu(false)
     }, [isMinRes])
 
+    useEffect(() => {
+        window.addEventListener('scroll', scrollDetect);
+        return () => window.removeEventListener('scroll', scrollDetect);
+    })
+
+    const scrollDetect = () => {
+        if ( window.scrollY ) {
+            setScrollValueY(window.scrollY)
+            if ( window.pageYOffset != window.scrollY ) {
+                setIsScroll(true)
+            } else {
+                setIsScroll(false)
+            }
+        }
+    }
+
+    console.log('pageoffset ' + window.pageYOffset + 'scroll ' + window.scrollY)
+
   return(
-    <Wrapper brightMode={brightMode}>
+    <Wrapper brightMode={brightMode} isScroll={isScroll}>
         <MenuSlideWrapper showSlideMenu={showSlideMenu}>
             <MenuSlide showSlideMenu={showSlideMenu} isMinRes={isMinRes} brightMode={brightMode}>
                 
@@ -93,7 +113,7 @@ const Wrapper = styled.div`
     height: 80px;
     display: flex;
     background: ${props => props.brightMode? bgColorModeData.brightMode.background : bgColorModeData.darkMode.background};
-    box-shadow: 0 6px 6px 0px #00000012;
+    box-shadow: ${props => props.isScroll ? '0 6px 6px 0px #00000012' : 'none'};
     transition: 0.5s;
     z-index: 10;
     a{

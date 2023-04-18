@@ -36,11 +36,12 @@ const Experience = () => {
         return <JobButton 
             key={`${ID}-${index}`} 
             brightMode={brightMode}
+            isMinRes={isMinRes}
             className='btn' 
             style={index === jobDescription ? {background: '#26214720'} : {background: 'none'}}
             onClick={e => handleClick(e, index)}
             >
-            {item.jobTitle}
+            <p style={isMinRes ? {...appStylesData.minRes.p} : {...appStylesData.maxRes.p}}>{item.jobTitle}</p>
         </JobButton>
     })
 
@@ -48,15 +49,15 @@ const Experience = () => {
         return <li 
             key={`${ID}-${index}`}
             >
-            <p>{item}</p>
+            <p style={isMinRes ? {...appStylesData.minRes.p} : {...appStylesData.maxRes.p}}>{item}</p>
         </li>
     })
 
     const ExperienceTemplate = () => {
         return <div>
             <h3 style={{fontWeight: '400'}}>{experienceData[jobDescription].jobTitle}</h3><br />
-            <p><b>{experienceData[jobDescription].company}</b></p><br />
-            <p>{experienceData[jobDescription].period}</p><br />
+            <p style={isMinRes ? {...appStylesData.minRes.p} : {...appStylesData.maxRes.p}}><b>{experienceData[jobDescription].company}</b></p><br />
+            <p style={isMinRes ? {...appStylesData.minRes.p} : {...appStylesData.maxRes.p}}>{experienceData[jobDescription].period}</p><br />
             <ul>{ExperienceDataDescriptionList}</ul>
         </div>
     }
@@ -68,8 +69,8 @@ const Experience = () => {
 return(
     <Wrapper id='experience' brightMode={brightMode}> 
         <Container brightMode={brightMode}>
-            <LeftSide>
-                <img src='./experience-image.svg' />
+            <LeftSide brightMode={brightMode}>
+                {brightMode ? <img src='./experience-image-bright.svg' /> : <img src='./experience-image-dark.svg' />}
             </LeftSide>
             <RightSide>
                 <Section>
@@ -125,7 +126,7 @@ const Container = styled.div`
         background: linear-gradient(to right, #F99055 10%, #B94971 60%);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
-        filter: ${props => props.brightMode ? 'drop-shadow(8px 8px #BED4A9)' : 'drop-shadow(8px 8px #262147)'};
+        filter: ${props => props.brightMode ? 'drop-shadow(0.5vw 0.5vw #dadaf2)' : 'drop-shadow(0.5vw 0.5vw #262147)'};
     }
     h2, h3, h4 {
         color: ${props => props.brightMode ? '#4F4E66' : '#ffffff'};
@@ -139,7 +140,7 @@ const Container = styled.div`
         justify-content: center;
         gap: 20px;
         h1{
-            filter: ${props => props.brightMode ? 'drop-shadow(5px 5px #BED4A9)' : 'drop-shadow(8px 8px #262147)'};
+            filter: ${props => props.brightMode ? 'drop-shadow(5px 5px #dadaf2)' : 'drop-shadow(8px 8px #262147)'};
         }
     }
 `
@@ -148,9 +149,8 @@ const LeftSide = styled.div`
     align-items: center;
     justify-content: center;
     img{
-      
-        height: 100%;
-        max-width: 540px;
+        height: 90%;
+        max-width: 420px;
     }
     @media (max-width: 1090px) {
         display: none;

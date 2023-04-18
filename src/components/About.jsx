@@ -19,7 +19,7 @@ return(
             <LeftSide>
                 <h1 style={isMinRes ? {...appStylesData.minRes.h1} : {...appStylesData.maxRes.h1}}>{t('About.Front.1')}</h1><br />
                 <h2 style={isMinRes ? {...appStylesData.minRes.h2} : {...appStylesData.maxRes.h2}}>{t('About.Front.2')}</h2><br />
-                <p>{t('About.Front.3')}</p><br />
+                <p style={isMinRes ? {...appStylesData.minRes.p} : {...appStylesData.maxRes.p}}>{t('About.Front.3')}</p><br />
                 <h3 style={isMinRes ? {...appStylesData.minRes.h3} : {...appStylesData.maxRes.h3}}>Front-End Technologies</h3>
                 <TechnologiesWrapper>
                     {technologies.frontEnd.map((item, index) => <SmallBox key={index} brightMode={brightMode}><p>{item}</p></SmallBox>)}
@@ -35,12 +35,12 @@ return(
             </LeftSide>
             <MiddleSide brightMode={brightMode}>
                 <div />
-                <img src='./about-image.svg' />
+                {brightMode ? <img src='./about-image-bright.svg' /> : <img src='./about-image-dark.svg' />}
             </MiddleSide>
             <RightSide>
                 <h1 style={isMinRes ? {...appStylesData.minRes.h1} : {...appStylesData.maxRes.h1}}>{t('About.Graphic.1')}</h1><br />
                 <h2 style={isMinRes ? {...appStylesData.minRes.h2} : {...appStylesData.maxRes.h2}}>{t('About.Graphic.2')}</h2><br />
-                <p>{t('About.Graphic.3')}</p><br />
+                <p style={isMinRes ? {...appStylesData.minRes.p} : {...appStylesData.maxRes.p}}>{t('About.Graphic.3')}</p><br />
             <h3 style={isMinRes ? {...appStylesData.minRes.h3} : {...appStylesData.maxRes.h3}}>I use Software</h3>
             <TechnologiesWrapper>
                 {technologies.graphic.map((item, index) => <SmallBox key={index} brightMode={brightMode}><p>{item}</p></SmallBox>)}
@@ -58,24 +58,23 @@ const Wrapper = styled.div`
     background: ${props => props.brightMode? bgColorModeData.brightMode.background : bgColorModeData.darkMode.background};
 `
 const Container = styled.div`
-    margin-left: 50px;
-    margin-right: 50px;
+    margin-left: 5.5vw;
+    margin-right: 5.5vw;
     width: 100%;
     height: 100vh;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 20px;
+    gap: 10px;
 
     p{
         color: ${props => props.brightMode? '#5F5F92' : '#90AFAD'};
     }
     h1{
-       
         background: linear-gradient(to right, #F99055 10%, #B94971 80%);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
-        filter: ${props => props.brightMode? 'drop-shadow(8px 8px #dadaf2)' : 'drop-shadow(8px 8px #262147)'};
+        filter: ${props => props.brightMode ? 'drop-shadow(0.5vw 0.5vw #dadaf2)' : 'drop-shadow(0.5vw 0.5vw #262147)'};
     }
     h2, h3, h4 {
         color: ${props => props.brightMode? '#4F4E66' : '#ffffff'};
@@ -89,12 +88,12 @@ const Container = styled.div`
         justify-content: center;
         gap: 20px;
         h1{
-            filter: ${props => props.brightMode? 'drop-shadow(5px 5px #BED4A9)' : 'drop-shadow(8px 8px #262147)'};
+            filter: ${props => props.brightMode? 'drop-shadow(5px 5px #dadaf2)' : 'drop-shadow(8px 8px #262147)'};
         }
     }
 `
 const LeftSide = styled.div`
-    max-width: 32vw;
+    max-width: 30vw;
     display: flex;
     flex-direction: column;
     justify-content: left;
@@ -125,7 +124,7 @@ const MiddleSide = styled.div`
     }
 `
 const RightSide = styled.div`
-    max-width: 32vw;
+    max-width: 30vw;
     display: flex;
     flex-direction: column;
     align-items: flex-end;

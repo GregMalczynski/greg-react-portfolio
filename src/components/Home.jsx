@@ -2,7 +2,6 @@ import styled from 'styled-components';
 import { useContext, useEffect } from 'react';
 import { AppMode } from '../context/AppMode';
 import { bgColorModeData } from '../app-data/bgColorModeData';
-
 import { appStylesData } from '../app-data/appStylesData';
 import { AppLang } from '../context/AppLang';
 import { useTranslation } from 'react-i18next';
@@ -36,16 +35,16 @@ return(
                 <p style={{...appStylesData.maxRes.p}}>{t('Home.3')}</p>
                 </Section>
                 <IconsWrapper>
-                        <img src='./ico-linked-dark.svg' />
-                        <img src='./ico-github-dark.svg' />
-                        <img src='./ico-codewarz-dark.svg' />
+                        <a href='https://www.linkedin.com/in/grzegorz-malczynski' target='_blank' ><img src='./ico-linked-dark.svg' /></a>
+                        <a href='https://github.com/GregMalczynski' target='_blank' ><img src='./ico-github-dark.svg' /></a>
+                        <a href='https://www.codewars.com/users/GregoryMalczynski' target='_blank' ><img src='./ico-codewarz-dark.svg' /></a>
                 </IconsWrapper>
                 <Button brightMode={brightMode}>
-                    <p>More About Me...</p>
+                    <a href='#about' ><p>More About Me...</p></a>
                 </Button>
             </LeftSide>
-            <RightSide> 
-                    <img src='./home-image.svg' />
+            <RightSide brightMode={brightMode}> 
+                {brightMode ? <img src='./home-image-bright-option.svg' /> : <img src='./home-image-dark.svg' />}
             </RightSide>
         </Container>
     </Wrapper>
@@ -69,7 +68,7 @@ const Container = styled.div`
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    gap: 80px;
+    gap: 4vw;
 
     p{
         color: ${props => props.brightMode ? '#5F5F93' : '#789A98'};
@@ -78,10 +77,13 @@ const Container = styled.div`
         background: linear-gradient(to right, #F99055 10%, #B94971 90%);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
-        filter: ${props => props.brightMode ? 'drop-shadow(8px 8px #4f4e66)' : 'drop-shadow(8px 8px #262147)'};
+        filter: ${props => props.brightMode ? 'drop-shadow(0.5vw 0.5vw #dadaf2)' : 'drop-shadow(0.5vw 0.5vw #262147)'};
     }
     h2, h3, h4 {
         color: ${props => props.brightMode ? '#4F4E66' : '#ffffff'};
+    }
+    a{
+        text-decoration: none;
     }
 
     @media (max-width: 768px) {
@@ -92,7 +94,7 @@ const Container = styled.div`
         justify-content: center;
         gap: 50px;
         h1{
-            filter: ${props => props.brightMode ? 'drop-shadow(5px 5px #D1DDC3)' : 'drop-shadow(8px 8px #262147)'};
+            filter: ${props => props.brightMode ? 'drop-shadow(5px 5px #dadaf2)' : 'drop-shadow(8px 8px #262147)'};
         }
     }
 `
