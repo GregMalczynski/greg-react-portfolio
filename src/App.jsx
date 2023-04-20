@@ -16,15 +16,10 @@ const App = () => {
     <AppMode.Provider value={{brightMode, setBrightMode}}>
       <AppLang.Provider value={{isPlLang, setIsPlLang}}>
         <AppMinResContext.Provider value={{isMinRes}}>
-          <Wrapper>
-            <Main />
-          </Wrapper>
+          <Main />
         </AppMinResContext.Provider>
       </AppLang.Provider>
     </AppMode.Provider>
   )
 }
 export default App;
-
-const Wrapper = styled.div`
-`

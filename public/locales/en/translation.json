@@ -16,7 +16,7 @@
     "Home": {
         "1": "Hi there, I'am",
         "2": "Front-End Developer/<br>Graphic Designer",
-        "3": "I love build and design Apps and Websites..."
+        "3": "I am a web and application designer. If you are interested in the first page, learn more about me and my projects. Enjoy watching :)"
     },
     "About": {
         "Front": {
@@ -95,7 +95,7 @@
             {
                 "PreTitle": "App",
                 "Title": "JAVASCRIPT DRUM MACHINE",
-                "Description": "It is an application based on OpenAI ChatGTP. After giving your name, you can choose 6 topics of conversation with AI. When you select one of them, it displays a chat where you can chat."
+                "Description": "This is a simple music App written in JavaScript. On there You have 9 pads with drum sounds. Through press keys on keyboard, You can play drum rhythms. Also You can play background loop music track for better play."
             },
             {
                 "PreTitle": "App",

@@ -16,7 +16,7 @@ const AudioModule = () => {
         } else {
             audio.pause();
         }
-    }, [isPlay])
+    }, [isPlay]);
 
     return(
         <Wrapper>

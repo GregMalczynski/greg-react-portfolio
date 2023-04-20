@@ -19,25 +19,25 @@ const Nav = () => {
     const [ showSlideMenu, setShowSlideMenu ] = useState(false);
 
     useEffect(() => {
-        isPlLang ? i18n.changeLanguage('pl') : i18n.changeLanguage('en')
-    }, [isPlLang])
+        isPlLang ? i18n.changeLanguage('pl') : i18n.changeLanguage('en');
+    }, [isPlLang]);
 
     useEffect(() => {
-        isMinRes ? setShowSlideMenu(false) : setShowSlideMenu(false)
-    }, [isMinRes])
+        isMinRes ? setShowSlideMenu(false) : setShowSlideMenu(false);
+    }, [isMinRes]);
 
     useEffect(() => {
         window.addEventListener('scroll', scrollDetect);
         return () => window.removeEventListener('scroll', scrollDetect);
-    })
+    });
 
     const scrollDetect = () => {
         if ( window.scrollY ) {
-            setScrollValueY(window.scrollY)
+            setScrollValueY(window.scrollY);
             if ( window.pageYOffset != window.scrollY ) {
-                setIsScroll(true)
+                setIsScroll(true);
             } else {
-                setIsScroll(false)
+                setIsScroll(false);
             }
         }
     }
@@ -47,22 +47,21 @@ const Nav = () => {
   return(
     <Wrapper brightMode={brightMode} isScroll={isScroll}>
         <MenuSlideWrapper showSlideMenu={showSlideMenu}>
-            <MenuSlide showSlideMenu={showSlideMenu} isMinRes={isMinRes} brightMode={brightMode}>
-                
+            <MenuSlide showSlideMenu={showSlideMenu} isMinRes={isMinRes} brightMode={brightMode}>    
                 <a href='#'>{t('Nav.Menu.1')}</a>
                 <a href='#about'>{t('Nav.Menu.2')}</a>
                 <a href='#experience'>{t('Nav.Menu.3')}</a>
                 <a href='#portfolio'>{t('Nav.Menu.4')}</a>
                 <a href='#contact'>{t('Nav.Menu.5')}</a>
                 <Mode brightMode={brightMode} isMinRes={isMinRes}>
-                    <button onClick={() => setBrightMode(!brightMode)}>Color Mode / {brightMode ? 'Dark' : 'Bright'}</button>
+                    <button onClick={() => setBrightMode(!brightMode)}>Color Mode /<br /> {brightMode ? 'Dark' : 'Bright'}</button>
                     <button onClick={() => setIsPlLang(!isPlLang)}>Language<br />{isPlLang ? 'EN' : 'PL'}</button>
                 </Mode>
             </MenuSlide>
         </MenuSlideWrapper>
         <Menu>
             <Logo>
-                <img src='./logo.svg' />
+                <a href='#'><img src='./logo.svg' /></a>
             </Logo>
             {
                 !isMinRes ? (
@@ -75,7 +74,7 @@ const Nav = () => {
                         <a href='#contact'>{t('Nav.Menu.5')}</a>
                     </Items>
                     <Mode brightMode={brightMode} isMinRes={isMinRes}>
-                        <button onClick={() => setBrightMode(!brightMode)}>Color Mode / {brightMode ? 'Dark' : 'Bright'}</button>
+                        <button onClick={() => setBrightMode(!brightMode)}>Color Mode / <br />{brightMode ? 'Dark' : 'Bright'}</button>
                         <button onClick={() => setIsPlLang(!isPlLang)}>Language<br />{isPlLang ? 'EN' : 'PL'}</button>
                     </Mode>
                 </FullMenu>
@@ -145,15 +144,13 @@ const MenuSlide = styled.div`
     height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: top;
     align-items: center;
     margin-right: 0px;
     background: ${props => props.brightMode ? bgColorModeData.brightMode.background : bgColorModeData.darkMode.background};
     gap: 20px;
     transform: ${props => props.showSlideMenu ? 'translateX(0px)' : 'translateX(260px)'};
     transition: 0.3s;
-`
-const CloseButton = styled.div`
 `
 const Menu = styled.div`
     width: 100%;
@@ -184,7 +181,7 @@ const FullMenu = styled.div`
     display: flex;
     flex-direction: row; 
     align-items: center;
-    gap: 1.2vw;
+    gap: 1vw;
 `
 const BurgerMenu = styled.div`
     p{
@@ -201,17 +198,17 @@ const BurgerMenu = styled.div`
 `
 const Items = styled.div`
     display: flex;
-    gap: 1.2vw;
+    gap: 0.6vw;
 `
 const Mode = styled.div`
-    width: 220px;
     display: flex; 
     flex-direction: ${props => props.isMinRes ? 'column' : 'row'};
+    justify-content: center;
     gap: 10px;
     button{
-        width: 120px;
+        width: 100px;
         padding: 6px;
-        border: 2px solid ${props => props.brightMode? 'black' : '#ffffff'};
+        border: 2px solid ${props => props.brightMode ? '#BED4A8' : '#ffffff'};
         border-radius: 4px;
         background: none;
         color: ${props => props.brightMode? 'black' : '#ffffff'};

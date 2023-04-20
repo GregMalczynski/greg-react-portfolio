@@ -14,23 +14,23 @@ const Experience = () => {
     const {isMinRes} = useContext(AppMinResContext);
 
     const ID = useId();
-    const myRef = useRef()
+    const myRef = useRef();
 
     const [ jobDescription, setJobDescription ] = useState(0);
     const [ markerStyle, setMarkerStyle ] = useState({
         top: 0,
         height: 0,
-    })
+    });
 
     const handleClick = (e, index) => {
-        setJobDescription(index)
-        indicator(e.target)
+        setJobDescription(index);
+        indicator(e.target);
         useTranslation();
     }
 
     const indicator = (e) => {
-        setMarkerStyle({top: e.offsetTop, height: e.offsetHeight})
-    }
+        setMarkerStyle({top: e.offsetTop, height: e.offsetHeight});
+    };
 
     const ButtonList = experienceData.map((item, index) => {
         return <JobButton 
@@ -41,7 +41,7 @@ const Experience = () => {
             style={index === jobDescription ? {background: '#26214720'} : {background: 'none'}}
             onClick={e => handleClick(e, index)}
             >
-            <p style={isMinRes ? {...appStylesData.minRes.p} : {...appStylesData.maxRes.p}}>{item.jobTitle}</p>
+            <p style={isMinRes ? {...appStylesData.maxRes.h1} : {...appStylesData.maxRes.p}}>{isMinRes ? `#${index}` : item.jobTitle}</p>
         </JobButton>
     })
 
@@ -55,9 +55,9 @@ const Experience = () => {
 
     const ExperienceTemplate = () => {
         return <div>
-            <h3 style={{fontWeight: '400'}}>{experienceData[jobDescription].jobTitle}</h3><br />
-            <p style={isMinRes ? {...appStylesData.minRes.p} : {...appStylesData.maxRes.p}}><b>{experienceData[jobDescription].company}</b></p><br />
-            <p style={isMinRes ? {...appStylesData.minRes.p} : {...appStylesData.maxRes.p}}>{experienceData[jobDescription].period}</p><br />
+            <h2 style={{fontWeight: '400'}}>{experienceData[jobDescription].jobTitle}</h2><br />
+            <h4 style={isMinRes ? {...appStylesData.minRes.h4} : {...appStylesData.maxRes.h4}}><b>{experienceData[jobDescription].company}</b></h4><br />
+            <h4 style={isMinRes ? {...appStylesData.minRes.h4} : {...appStylesData.maxRes.h4}}>{experienceData[jobDescription].period}</h4><br />
             <ul>{ExperienceDataDescriptionList}</ul>
         </div>
     }
@@ -110,6 +110,7 @@ const Wrapper = styled.div`
 const Container = styled.div`
     margin-left: 50px;
     margin-right: 50px;
+    margin-top: 20px;
     width: 100%;
     
     display: flex;
@@ -171,14 +172,6 @@ const RightSide = styled.div`
         width: 100%;
         margin-left: 0px;
         margin-right: 0px;
-        h1{
-            text-align: center;
-            font-size: 11vw;
-            line-height: 10vw;
-        }
-        h2, h3, h4 {
-            font-size: 4vw;
-        }
     }
     @media (max-width: 1090px) {
         width: 100%;

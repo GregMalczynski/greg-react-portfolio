@@ -34,8 +34,6 @@ const Portfolio = () => {
                         <h4 style={isMinRes ? {...appStylesData.minRes.h4} : {...appStylesData.maxRes.h4}}>{t(`Portfolio.List.${index}.PreTitle`)}</h4>
                         <h2>{t(`Portfolio.List.${index}.Title`)}</h2>
                         <br />
-                        <hr />
-                        <br />
                     </div>
                     <Description brightMode={brightMode}>
                         <div>
@@ -46,7 +44,7 @@ const Portfolio = () => {
                         <p style={brightMode ? {color: '#5F5F92'} : {color: 'white'}}>{t(`Portfolio.Technologies`)}</p> {item.technologies.map((item, index) => <SmallBox key={index} brightMode={brightMode}><p>{item}</p></SmallBox>)}
                     </TechnologiesWrapper>
                     <IconsWrapper reverse={item.reverse}>
-                        <img src='./ico-github-dark.svg' />
+                        <a href={item.git} target='_blank'><img src='./ico-github-dark.svg' /></a>
                         <img src='./ico-enter-dark.svg' />
                     </IconsWrapper>
                 </ContentWrapper>
@@ -131,7 +129,12 @@ const PortfolioContainer = styled.div`
         text-align: ${props => props.reverse ? 'right' : 'left'};
     }
     hr{
-        align-items: ${props => props.reverse ? 'right' : 'left'};
+        width: 50px;
+        height: 3px;
+        border: none;
+        background: black;
+        text-align: right;
+        margin-right: 0;
     }
 `
 const MaskWrapper = styled.div`
@@ -143,17 +146,16 @@ const MaskWrapper = styled.div`
         width: 415px;
     }
     img{
-        filter: blur(4px); 
+        scale: 1.0;
         transition: 0.3s;
     }
     .clip-svg {
         z-index: 0;
         clip-path: url(#myClip);
-        background: white;
     }
     &:hover {
         img{
-            filter: blur(0px);
+            scale: 1.05;
         }
     }
     @media (max-width: 768px) {
@@ -167,10 +169,6 @@ const ContentWrapper = styled.div`
     margin-left: ${props => props.reverse ? '-50px' : null};
     margin-right: ${props => props.reverse ? null : '-50px'};
     z-index: 2;
-
-    hr {
-        width: 50px;
-    }
 
     @media (max-width: 768px) {
         margin-left: 0px;

@@ -15,8 +15,8 @@ const Main = () => {
     const {isMinRes} = useContext(AppMinResContext);
 
     useEffect(() => {
-        isPlLang ? i18n.changeLanguage('pl') : i18n.changeLanguage('en')
-    }, [isPlLang])
+        isPlLang ? i18n.changeLanguage('pl') : i18n.changeLanguage('en');
+    }, [isPlLang]);
 
 return(
     <Wrapper id='home' brightMode={brightMode}>
@@ -39,7 +39,7 @@ return(
                         <a href='https://github.com/GregMalczynski' target='_blank' ><img src='./ico-github-dark.svg' /></a>
                         <a href='https://www.codewars.com/users/GregoryMalczynski' target='_blank' ><img src='./ico-codewarz-dark.svg' /></a>
                 </IconsWrapper>
-                <Button brightMode={brightMode}>
+                <Button brightMode={brightMode} isMinRes={isMinRes}>
                     <a href='#about' ><p>More About Me...</p></a>
                 </Button>
             </LeftSide>
@@ -103,10 +103,17 @@ const LeftSide = styled.div`
     flex-direction: column;
     justify-content: left;
     gap: 20px;
+    p{
+        max-width: 500px;
+    }
     @media (max-width: 768px) {
         height: 28vh;
         align-items: center;
         gap: 5px;
+        p{
+            text-align: center;
+            max-width: 420px;
+        }
     }
 `
 const Section = styled.div`
@@ -121,7 +128,7 @@ const RightSide = styled.div`
     }
 
     @media (max-width: 768px) {
-        height: 48vh;
+        height: 49vh;
         img{
             max-width: 600px;
         }
@@ -151,6 +158,7 @@ const Button = styled.div`
     padding: 5px;
     border-radius: 5px;
     border: 2px solid ${props => props.brightMode ? '#BED4A8' : '#ffffff'};
+    visibility: ${props => props.isMinRes ? 'hidden' : 'visible'};
     justify-content: center;
     align-items: center;
     color: ${props => props.brightMode ? '#4F4E66' : '#ffffff'};

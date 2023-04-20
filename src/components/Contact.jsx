@@ -15,15 +15,19 @@ const Contact = () => {
 return(
     <Wrapper id='contact' brightMode={brightMode}>
         <Container brightMode={brightMode}>
-            <RightSide>
-                <div>
-                <h1 brightMode={brightMode} style={isMinRes ? {...appStylesData.minRes.h1} : {...appStylesData.maxRes.h1}}>{t('Contact.Title')}</h1>
-                <h2 brightMode={brightMode} style={isMinRes ? {...appStylesData.minRes.h2} : {...appStylesData.maxRes.h2}}>{t('Contact.Subtitle')}</h2>
-                </div>
+            <MainSection>
+                <Section>
+                    <h1 brightMode={brightMode} style={isMinRes ? {...appStylesData.minRes.h1} : {...appStylesData.maxRes.h1}}>{t('Contact.Title')}</h1>
+                </Section>
+                <Section>
+                    <h2 brightMode={brightMode} style={isMinRes ? {...appStylesData.minRes.h2} : {...appStylesData.maxRes.h2}}>{t('Contact.Subtitle')}</h2>
+                </Section>
                 <Img>
                     {brightMode ? <img src='./contact-image-bright.svg' /> : <img src='./contact-image.svg' />}
                 </Img>
+                <Section>
                 <p style={isMinRes ? {...appStylesData.minRes.p} : {...appStylesData.maxRes.p}}>{t('Contact.Description')}</p>
+                </Section>
                 <Button brightMode={brightMode}>
                     <p>Send Message</p>
                 </Button>
@@ -33,10 +37,10 @@ return(
                     <a href='https://www.codewars.com/users/GregoryMalczynski' target='_blank' ><img src='./ico-codewarz-dark.svg' /></a>
                 </IconsWrapper>
                 <Footer>
-                    <p style={{fontSize: '14px'}}>Project / Draw / Designed / Code</p>
-                    <p style={{fontSize: '14px'}}>By Greg</p>
+                    <p style={{fontSize: '10px'}}>Project / Draw / Designed / Code</p>
+                    <p style={{fontSize: '10px'}}>By Greg</p>
                 </Footer>
-            </RightSide>
+            </MainSection>
         </Container>
     </Wrapper>
     )
@@ -45,12 +49,14 @@ export default Contact;
 
 const Wrapper = styled.div`
     width: 100%;
+    
     display: flex;
     background: ${props => props.brightMode ? bgColorModeData.brightMode.background : bgColorModeData.darkMode.background};
 `
 const Container = styled.div`
     margin-left: 50px;
     margin-right: 50px;
+    margin-top: 0px;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -78,7 +84,7 @@ const Container = styled.div`
     }
 
     @media (max-width: 768px) {
-        margin-top: 14vh;
+        margin-top: 6vh;
         margin-left: 20px;
         margin-right: 20px;
         flex-direction: column;
@@ -86,7 +92,7 @@ const Container = styled.div`
         gap: 20px;
     }
 `
-const RightSide = styled.div`
+const MainSection = styled.div`
     max-width: 50%; 
     height: 100vh;
     margin-top: 55px;
@@ -101,6 +107,9 @@ const RightSide = styled.div`
         max-width: 100%;
         margin-top: 25px;
     }
+`
+const Section = styled.div`
+
 `
 const IconsWrapper = styled.div`
     display: flex;

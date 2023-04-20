@@ -16,7 +16,7 @@
     "Home": {
         "1": "Witaj, jestem",
         "2": "Front-End Developer/<br>Graphic Designer",
-        "3": "Uwielbiam projektować i tworzyć Aplikacje i Strony internetowe..."
+        "3": "Jestem projektantem stron i aplikacji internetowych. Jeśli zainteresowała Cię pierwsza strona, dowiedz się więcej na temat mojej osoby i moich projektów. Miłego oglądania :)"
     },
     "About": {
         "Front": {
@@ -36,7 +36,7 @@
         "1": {
             "JobTitle": "Freelancer Graphic Designer / Front-End Developer / 3D Designer",
             "Description": [
-                "Tworzenie Landing Pages oraz prostych stron / aplikacji internetowych z wykorzystaniem HTML5, CSS, JavaScript,",
+                "Tworzenie tzw. Landing Pages oraz prostych stron / aplikacji internetowych z wykorzystaniem HTML5, CSS, JavaScript,",
                 "Budowanie komponentów i nowych funkcjonalności z wykorzystaniem ReactJs, wykorzystanie Styled-Components w stylizacji,",
                 "Działania związane z identyfikacją wizualną (logo, branding),",
                 "Projektowanie grafiki, layoutów i makiet stron internetowych, aplikacji z wykorzystaniem Adobe Photoshop, Adobe Illustrator , Figma, Adobe XD,",
@@ -95,7 +95,7 @@
             {
                 "PreTitle": "App",
                 "Title": "CHAT GPT APP",
-                "Description": "It is an application based on OpenAI ChatGTP. After giving your name, you can choose 6 topics of conversation with AI. When you select one of them, it displays a chat where you can chat."
+                "Description": "To jest prosta aplikacja muzyczna napisana w JavaScript. Znajduje się w niej 9 padów z dźwiękami perkusji. Poprzez naciśnięcie klawiszy na klawiaturze można odtwarzać rytmy perkusyjne. Możesz również odtwarzać pętlę tła muzycznego dla lepszej gry."
             },
             {
                 "PreTitle": "App",
