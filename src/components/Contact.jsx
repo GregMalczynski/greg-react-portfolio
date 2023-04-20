@@ -130,7 +130,7 @@ const IconsWrapper = styled.div`
 const Img = styled.div`
     img{
         width: 100%;
-        height: 100%;
+        height: 36vh;
         max-width: 900px;
     }
 

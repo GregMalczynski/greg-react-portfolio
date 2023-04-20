@@ -150,8 +150,8 @@ const LeftSide = styled.div`
     align-items: center;
     justify-content: center;
     img{
-        height: 90%;
         max-width: 420px;
+        max-height: 80vh;
     }
     @media (max-width: 1090px) {
         display: none;

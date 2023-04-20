@@ -71,7 +71,6 @@ const SoundModule = styled.div`
     border-radius: 0px 5px 5px 0px;
     background: #4C765F;
     padding: 8px;
-    
     transition: 0.3s ease-in-out;
 `
 const LeftSection = styled.div`
@@ -98,26 +97,9 @@ const WheelOne = styled.div`
           }
       }
 `
-const WheelTwo = styled.div`
-    width: 75px;
-    height: 75px;
-    position: absolute;
+const WheelTwo = styled(WheelOne)`
     margin-left: 90px;
     margin-top: 7px;
-    animation: rotate 3s linear;
-    animation-iteration-count: infinite;
-    animation-play-state: ${props => props.isPlay ? 'running' : 'paused'};
-
-    @keyframes rotate {
-        0% {
-            -webkit-transform: rotate3d(0, 0, 1, 0deg);
-            transform: rotate3d(0, 0, 1, 0deg);
-          }
-        100% {
-            -webkit-transform: rotate3d(0, 0, 1, 359deg);
-            transform: rotate3d(0, 0, 1, 359deg);
-          }
-      }
 `
 const BtnPlay = styled.div`
     position: absolute;
@@ -126,18 +108,13 @@ const BtnPlay = styled.div`
     filter: ${props => props.isPlay ? 'drop-shadow(0px 0px #00000090)' : 'drop-shadow(2px 2px #00000090)'};
     transform: ${props => props.isPlay ? 'translate(2px, 2px)' : 'translate(0px, 0px)'};
     cursor: pointer;
-
     transition: 0.1s;
 `
-const BtnPause = styled.div`
-    position: absolute;
+const BtnPause = styled(BtnPlay)`
     margin-left: 89px;
     margin-top: 103px;
     filter: ${props => !props.isPlay ? 'drop-shadow(0px 0px #00000090)' : 'drop-shadow(2px 2px #00000090)'};
     transform: ${props => !props.isPlay ? 'translate(2px, 2px)' : 'translate(0px, 0px)'};
-    cursor: pointer;
-
-    transition: 0.1s;
 `
 const RightSection = styled.div`
     display: flex;

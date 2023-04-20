@@ -107,6 +107,7 @@ const MiddleSide = styled.div`
     img{
         margin-top: 4vh;
         width: 25vw;
+        max-height: 80vh;
     }
     div{
         display: none;
