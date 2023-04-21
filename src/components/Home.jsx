@@ -6,6 +6,7 @@ import { appStylesData } from '../app-data/appStylesData';
 import { AppLang } from '../context/AppLang';
 import { useTranslation } from 'react-i18next';
 import { AppMinResContext } from '../context/AppMinResContext';
+import Fade from 'react-reveal/Fade';
 
 const Main = () => {
 
@@ -21,6 +22,7 @@ const Main = () => {
 return(
     <Wrapper id='home' brightMode={brightMode}>
         <Container brightMode={brightMode}>
+            <Fade left>
             <LeftSide brightMode={brightMode} appStylesData={appStylesData}>
                 <Section>
                     <h3 style={isMinRes ? {...appStylesData.minRes.h3} : {...appStylesData.maxRes.h3}}>{t('Home.1')}</h3>
@@ -43,9 +45,12 @@ return(
                     <a href='#about' ><p>More About Me...</p></a>
                 </Button>
             </LeftSide>
+            </Fade>
+            <Fade right>
             <RightSide brightMode={brightMode}> 
                 {brightMode ? <img src='./home-image-bright-option.svg' /> : <img src='./home-image-dark.svg' />}
             </RightSide>
+            </Fade>
         </Container>
     </Wrapper>
     )

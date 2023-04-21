@@ -6,6 +6,7 @@ import { experienceData } from '../app-data/experienceData';
 import { useTranslation } from 'react-i18next';
 import { AppMinResContext } from '../context/AppMinResContext';
 import { appStylesData } from '../app-data/appStylesData';
+import Fade from 'react-reveal/Fade';
 
 const Experience = () => {
 
@@ -70,16 +71,23 @@ return(
     <Wrapper id='experience' brightMode={brightMode}> 
         <Container brightMode={brightMode}>
             <LeftSide brightMode={brightMode}>
+                <Fade bottom>
                 {brightMode ? <img src='./experience-image-bright.svg' /> : <img src='./experience-image-dark.svg' />}
+                </Fade>
             </LeftSide>
             <RightSide>
                 <Section>
+                <Fade right>
                     <h1 brightMode={brightMode} style={isMinRes ? {...appStylesData.minRes.h1} : {...appStylesData.maxRes.h1}}>{t('Experience.Title')}</h1>
+                </Fade>
                 </Section>
                 <Section>
+                    <Fade right>
                     <h2 brightMode={brightMode} style={isMinRes ? {...appStylesData.minRes.h2} : {...appStylesData.maxRes.h2}}>{t('Experience.Subtitle')}</h2>
+                    </Fade>
                 </Section>
                 <ExperienceWrapper>
+                <Fade right>
                     <JobWrapper>
                         <Bar markerStyle={markerStyle}>
                             <div className='marker'></div>
@@ -93,6 +101,7 @@ return(
                     <DescriptionWrapper brightMode={brightMode}>
                         {ExperienceTemplate()}
                     </DescriptionWrapper>
+                </Fade>
                 </ExperienceWrapper>
             </RightSide>
         </Container>

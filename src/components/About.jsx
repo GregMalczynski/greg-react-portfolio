@@ -6,6 +6,7 @@ import { technologies } from '../app-data/technologies';
 import { useTranslation } from 'react-i18next';
 import { AppMinResContext } from '../context/AppMinResContext';
 import { appStylesData } from '../app-data/appStylesData';
+import Fade from 'react-reveal/Fade';
 
 const About = () => {
 
@@ -17,34 +18,48 @@ return(
     <Wrapper id='about' brightMode={brightMode}>
         <Container brightMode={brightMode}>
             <LeftSide>
+            <Fade left>
                 <h1 style={isMinRes ? {...appStylesData.minRes.h1} : {...appStylesData.maxRes.h1}}>{t('About.Front.1')}</h1><br />
                 <h2 style={isMinRes ? {...appStylesData.minRes.h2} : {...appStylesData.maxRes.h2}}>{t('About.Front.2')}</h2><br />
                 <p style={isMinRes ? {...appStylesData.minRes.p} : {...appStylesData.maxRes.p}}>{t('About.Front.3')}</p><br />
+            </Fade>
+            <Fade left>
                 <h3 style={isMinRes ? {...appStylesData.minRes.h3} : {...appStylesData.maxRes.h3}}>Front-End Technologies</h3>
                 <TechnologiesWrapper>
                     {technologies.frontEnd.map((item, index) => <SmallBox key={index} brightMode={brightMode}><p>{item}</p></SmallBox>)}
                 </TechnologiesWrapper>
+            </Fade>
+            <Fade left>
                 <h3 style={isMinRes ? {...appStylesData.minRes.h3} : {...appStylesData.maxRes.h3}}>Back-End Technologies</h3>
                 <TechnologiesWrapper>
                     {technologies.backEnd.map((item, index) => <SmallBox key={index} brightMode={brightMode}><p>{item}</p></SmallBox>)}
                 </TechnologiesWrapper>
+            </Fade>
+            <Fade left>
                 <h3 style={isMinRes ? {...appStylesData.minRes.h3} : {...appStylesData.maxRes.h3}}>Other Skills</h3>
                 <TechnologiesWrapper>
                     {technologies.other.map((item, index) => <SmallBox key={index} brightMode={brightMode}><p>{item}</p></SmallBox>)}
                 </TechnologiesWrapper>
+            </Fade>
             </LeftSide>
             <MiddleSide brightMode={brightMode}>
+                <Fade bottom>
                 <div />
                 {brightMode ? <img src='./about-image-bright.svg' /> : <img src='./about-image-dark.svg' />}
+                </Fade>
             </MiddleSide>
             <RightSide>
+            <Fade right>
                 <h1 style={isMinRes ? {...appStylesData.minRes.h1} : {...appStylesData.maxRes.h1}}>{t('About.Graphic.1')}</h1><br />
                 <h2 style={isMinRes ? {...appStylesData.minRes.h2} : {...appStylesData.maxRes.h2}}>{t('About.Graphic.2')}</h2><br />
                 <p style={isMinRes ? {...appStylesData.minRes.p} : {...appStylesData.maxRes.p}}>{t('About.Graphic.3')}</p><br />
+            </Fade>
+            <Fade right>
             <h3 style={isMinRes ? {...appStylesData.minRes.h3} : {...appStylesData.maxRes.h3}}>I use Software</h3>
             <TechnologiesWrapper>
                 {technologies.graphic.map((item, index) => <SmallBox key={index} brightMode={brightMode}><p>{item}</p></SmallBox>)}
             </TechnologiesWrapper>
+            </Fade>
             </RightSide>
         </Container>
     </Wrapper>

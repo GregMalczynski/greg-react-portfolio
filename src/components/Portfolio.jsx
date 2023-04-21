@@ -7,6 +7,7 @@ import { AppMinResContext } from '../context/AppMinResContext';
 import { appStylesData } from '../app-data/appStylesData';
 import { useTranslation } from 'react-i18next';
 import svgMask from '../../public/portfolio-mask.svg';
+import Fade from 'react-reveal/Fade';
 
 const Portfolio = () => {
 
@@ -18,6 +19,7 @@ const Portfolio = () => {
         return(
             <PortfolioContainer key={index} reverse={item.reverse}>
                 <MaskWrapper reverse={item.reverse} svgMask={svgMask}>
+                <Fade right>
                 <div>
                 <img className='clip-svg' src={item.img} />
                     <svg x="0px" y="0px" >
@@ -27,19 +29,25 @@ const Portfolio = () => {
                             </clipPath>
                         </defs>
                     </svg>
-                </div>  
+                </div>
+                </Fade>
                 </MaskWrapper>
                 <ContentWrapper reverse={item.reverse}>
+                <Fade left>
                     <div className='text-wrapper'>
                         <h4 style={isMinRes ? {...appStylesData.minRes.h4} : {...appStylesData.maxRes.h4}}>{t(`Portfolio.List.${index}.PreTitle`)}</h4>
                         <h2>{t(`Portfolio.List.${index}.Title`)}</h2>
                         <br />
                     </div>
+                </Fade>
                     <Description brightMode={brightMode}>
+                    <Fade left>
                         <div>
                             <p style={isMinRes ? {...appStylesData.minRes.p} : {...appStylesData.maxRes.p}}>{t(`Portfolio.List.${index}.Description`)}</p>
                         </div>
+                    </Fade>
                     </Description>
+                    <Fade left>
                     <TechnologiesWrapper reverse={item.reverse}>
                         <p style={brightMode ? {color: '#5F5F92'} : {color: 'white'}}>{t(`Portfolio.Technologies`)}</p> {item.technologies.map((item, index) => <SmallBox key={index} brightMode={brightMode}><p>{item}</p></SmallBox>)}
                     </TechnologiesWrapper>
@@ -47,6 +55,7 @@ const Portfolio = () => {
                         <a href={item.git} target='_blank'><img src='./ico-github-dark.svg' /></a>
                         <img src='./ico-enter-dark.svg' />
                     </IconsWrapper>
+                    </Fade>
                 </ContentWrapper>
             </PortfolioContainer>
     )}
@@ -54,12 +63,13 @@ const Portfolio = () => {
 return(
     <Wrapper id='portfolio' brightMode={brightMode}>
         <Container brightMode={brightMode} >
+            <Fade left>
                 <h1 brightMode={brightMode} style={isMinRes ? {...appStylesData.minRes.h1} : {...appStylesData.maxRes.h1}}>{t('Portfolio.Title')}</h1>
                 <h2 brightMode={brightMode} style={isMinRes ? {...appStylesData.minRes.h2} : {...appStylesData.maxRes.h2}}>{t('Portfolio.Subtitle')}</h2>
                 {portfolioData.map((item, index) => {
                     return portfolioTemplateLeft(item, index)
                 })}
-            
+            </Fade>
         </Container>
     </Wrapper>
     )

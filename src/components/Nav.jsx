@@ -61,7 +61,7 @@ const Nav = () => {
         </MenuSlideWrapper>
         <Menu>
             <Logo>
-                <a href='#'><img src='./logo.svg' /></a>
+                <a href='#'><img src='./logo.svg' alt='logo'/></a>
             </Logo>
             {
                 !isMinRes ? (
