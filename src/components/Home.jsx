@@ -37,9 +37,9 @@ return(
                 <p style={{...appStylesData.maxRes.p}}>{t('Home.3')}</p>
                 </Section>
                 <IconsWrapper>
-                        <a href='https://www.linkedin.com/in/grzegorz-malczynski' target='_blank' ><img src='./ico-linked-dark.svg' /></a>
-                        <a href='https://github.com/GregMalczynski' target='_blank' ><img src='./ico-github-dark.svg' /></a>
-                        <a href='https://www.codewars.com/users/GregoryMalczynski' target='_blank' ><img src='./ico-codewarz-dark.svg' /></a>
+                    <a href='https://www.linkedin.com/in/grzegorz-malczynski' target='_blank' ><img src='./ico-linked-dark.svg' /></a>
+                    <a href='https://github.com/GregMalczynski' target='_blank' ><img src='./ico-github-dark.svg' /></a>
+                    <a href='https://www.codewars.com/users/GregoryMalczynski' target='_blank' ><img src='./ico-codewarz-dark.svg' /></a>
                 </IconsWrapper>
                 <Button brightMode={brightMode} isMinRes={isMinRes}>
                     <a href='#about' ><p>More About Me...</p></a>
@@ -84,8 +84,11 @@ const Container = styled.div`
         -webkit-text-fill-color: transparent;
         filter: ${props => props.brightMode ? 'drop-shadow(0.5vw 0.5vw #dadaf2)' : 'drop-shadow(0.5vw 0.5vw #262147)'};
     }
-    h2, h3, h4 {
+    h2, h4 {
         color: ${props => props.brightMode ? '#4F4E66' : '#ffffff'};
+    }
+    h3{
+        color: ${props => props.brightMode ? '#4F4E66' : '#F4BC58'};
     }
     a{
         text-decoration: none;
@@ -99,7 +102,7 @@ const Container = styled.div`
         justify-content: center;
         gap: 50px;
         h1{
-            filter: ${props => props.brightMode ? 'drop-shadow(5px 5px #dadaf2)' : 'drop-shadow(8px 8px #262147)'};
+            filter: ${props => props.brightMode ? 'drop-shadow(0.5vw 0.5vw #dadaf2)' : 'drop-shadow(0.5vw 0.5vw #262147)'};
         }
     }
 `

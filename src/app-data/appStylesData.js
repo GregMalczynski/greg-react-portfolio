@@ -11,8 +11,9 @@ export const appStylesData = {
                     lineHeight: '2.6vw',
                 },
                 h3: {
-                    fontSize: '1.8vw',
-                    fontWeight: '400',
+                    fontSize: '22px',
+                    fontWeight: '800',
+                    textTransform: 'uppercase',
                 },
                 h4: {
                     fontSize: '22px',
@@ -44,8 +45,9 @@ export const appStylesData = {
                     lineHeight: '4.4vw',
                 },
                 h3: {
-                    fontSize: '3.6vw',
-                    fontWeight: '400',
+                    fontSize: '16px',
+                    fontWeight: '800',
+                    textTransform: 'uppercase',
                 },
                 h4: {
                     fontSize: '16px',

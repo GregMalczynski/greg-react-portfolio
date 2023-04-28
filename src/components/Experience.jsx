@@ -22,15 +22,19 @@ const Experience = () => {
         top: 0,
         height: 0,
     });
+    const [ isDescriptionFadeIn, setIsDescriptionFadeIn ] = useState(false);
 
     const handleClick = (e, index) => {
-        setJobDescription(index);
         indicator(e.target);
-        useTranslation();
-    }
+        setIsDescriptionFadeIn(true);
+        setTimeout(() => {
+            setJobDescription(index);
+            setIsDescriptionFadeIn(false)
+        }, 200)
+    };
 
     const indicator = (e) => {
-        setMarkerStyle({top: e.offsetTop, height: e.offsetHeight});
+        setMarkerStyle({top: e.offsetTop - 5, height: e.offsetHeight + 10 });
     };
 
     const ButtonList = experienceData.map((item, index) => {
@@ -38,11 +42,11 @@ const Experience = () => {
             key={`${ID}-${index}`} 
             brightMode={brightMode}
             isMinRes={isMinRes}
-            className='btn' 
+            className='btn'
+            ref={myRef} 
             style={index === jobDescription ? {background: '#26214720'} : {background: 'none'}}
-            onClick={e => handleClick(e, index)}
-            >
-            <p style={isMinRes ? {...appStylesData.maxRes.h1} : {...appStylesData.maxRes.p}}>{isMinRes ? `#${index}` : item.jobTitle}</p>
+            onClick={e => handleClick(e, index)}>
+            <p style={isMinRes ? {...appStylesData.maxRes.h1} : {...appStylesData.maxRes.p}}>{isMinRes ? `#${index + 1}` : item.jobTitle}</p>
         </JobButton>
     })
 
@@ -55,12 +59,12 @@ const Experience = () => {
     })
 
     const ExperienceTemplate = () => {
-        return <div>
-            <h2 style={{fontWeight: '400'}}>{experienceData[jobDescription].jobTitle}</h2><br />
+        return <ExperienceSection isDescriptionFadeIn={isDescriptionFadeIn}>
+            <h3 style={isMinRes ? {...appStylesData.minRes.h3} : {...appStylesData.maxRes.h3}}>{experienceData[jobDescription].jobTitle}</h3><br />
             <h4 style={isMinRes ? {...appStylesData.minRes.h4} : {...appStylesData.maxRes.h4}}><b>{experienceData[jobDescription].company}</b></h4><br />
             <h4 style={isMinRes ? {...appStylesData.minRes.h4} : {...appStylesData.maxRes.h4}}>{experienceData[jobDescription].period}</h4><br />
             <ul>{ExperienceDataDescriptionList}</ul>
-        </div>
+        </ExperienceSection>
     }
 
     useEffect(() => {
@@ -72,36 +76,34 @@ return(
         <Container brightMode={brightMode}>
             <LeftSide brightMode={brightMode}>
                 <Fade bottom>
-                {brightMode ? <img src='./experience-image-bright.svg' /> : <img src='./experience-image-dark.svg' />}
+                    {brightMode ? <img src='./experience-image-bright.svg' /> : <img src='./experience-image-dark.svg' />}
                 </Fade>
             </LeftSide>
             <RightSide>
                 <Section>
-                <Fade right>
-                    <h1 brightMode={brightMode} style={isMinRes ? {...appStylesData.minRes.h1} : {...appStylesData.maxRes.h1}}>{t('Experience.Title')}</h1>
-                </Fade>
-                </Section>
-                <Section>
                     <Fade right>
-                    <h2 brightMode={brightMode} style={isMinRes ? {...appStylesData.minRes.h2} : {...appStylesData.maxRes.h2}}>{t('Experience.Subtitle')}</h2>
+                        <h1 brightMode={brightMode} style={isMinRes ? {...appStylesData.minRes.h1} : {...appStylesData.maxRes.h1}}>{t('Experience.Title')}</h1>
+                    </Fade>
+                    <Fade right>
+                        <h2 brightMode={brightMode} style={isMinRes ? {...appStylesData.minRes.h2} : {...appStylesData.maxRes.h2}}>{t('Experience.Subtitle')}</h2>
                     </Fade>
                 </Section>
                 <ExperienceWrapper>
-                <Fade right>
-                    <JobWrapper>
-                        <Bar markerStyle={markerStyle}>
-                            <div className='marker'></div>
-                        </Bar>
-                        <Content >
-                            <div ref={myRef} >
-                                {ButtonList}
-                            </div>
-                        </Content>
-                    </JobWrapper>
-                    <DescriptionWrapper brightMode={brightMode}>
-                        {ExperienceTemplate()}
-                    </DescriptionWrapper>
-                </Fade>
+                    <Fade right>
+                        <JobWrapper>
+                            <Bar markerStyle={markerStyle}>
+                                <div className='marker'></div>
+                            </Bar>
+                            <Content >
+                                <div>
+                                    {ButtonList}
+                                </div>
+                            </Content>
+                        </JobWrapper>
+                        <DescriptionWrapper brightMode={brightMode}>
+                            {ExperienceTemplate()}
+                        </DescriptionWrapper>
+                    </Fade>
                 </ExperienceWrapper>
             </RightSide>
         </Container>
@@ -115,17 +117,17 @@ const Wrapper = styled.div`
     height: 100vh;
     display: flex;
     background: ${props => props.brightMode? bgColorModeData.brightMode.background : bgColorModeData.darkMode.background};
+    transition: 0.2s;
 `
 const Container = styled.div`
     margin-left: 50px;
     margin-right: 50px;
     margin-top: 20px;
     width: 100%;
-    
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 40px;
+    gap: 50px;
 
     p{
         color: ${props => props.brightMode ? '#5F5F92' : '#90AFAD'};
@@ -138,8 +140,11 @@ const Container = styled.div`
         -webkit-text-fill-color: transparent;
         filter: ${props => props.brightMode ? 'drop-shadow(0.5vw 0.5vw #dadaf2)' : 'drop-shadow(0.5vw 0.5vw #262147)'};
     }
-    h2, h3, h4 {
+    h2, h4 {
         color: ${props => props.brightMode ? '#4F4E66' : '#ffffff'};
+    }
+    h3{
+        color: ${props => props.brightMode ? '#4F4E66' : '#F4BC58'};
     }
 
     @media (max-width: 768px) {
@@ -148,9 +153,9 @@ const Container = styled.div`
         margin-top: 0vh;
         flex-direction: column;
         justify-content: center;
-        gap: 20px;
+        gap: 30px;
         h1{
-            filter: ${props => props.brightMode ? 'drop-shadow(5px 5px #dadaf2)' : 'drop-shadow(8px 8px #262147)'};
+            filter: ${props => props.brightMode ? 'drop-shadow(0.5vw 0.5vw #dadaf2)' : 'drop-shadow(0.5vw 0.5vw #262147)'};
         }
     }
 `
@@ -173,9 +178,9 @@ const RightSide = styled.div`
     width: 65%;
     display: flex;
     flex-direction: column;
-    justify-centent: center;
+    justify-centent: center;margin-top:
     align-items: left;
-    gap: 25px;
+    gap: 85px;
 
     @media (max-width: 768px) {
         width: 100%;
@@ -187,6 +192,12 @@ const RightSide = styled.div`
     } 
 `
 const Section = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    @media (max-width: 768px) {
+        gap: 3px;
+    }
 `
 const ExperienceWrapper = styled.div`
     display: flex;
@@ -201,7 +212,7 @@ const Content = styled.div`
         gap: 15px;
     }
     @media (max-width: 768px) {
-        width: 130px;
+        width: 80px;
     }
 `
 const JobWrapper = styled.div`
@@ -222,32 +233,26 @@ const Bar = styled.div`
 `
 const DescriptionWrapper = styled.div`
     width: 100%;
-    visibility: visible;
-    opacity: 1;
     color: ${props => props.brightMode ? 'black' : '#ffffff'};
     ul {
-        list-style-image: url("./arrow.svg");
+        list-style-image: url("./hexagon-small.svg");
     }
     li {
         line-height: 1.5rem;
         list-style-position: outside;
     }
-    transition: visibility 1s;
-    &:visible {
-        opacity: 0;
-        visibility: hidden;
-    }
-    
 `
+const ExperienceSection = styled.div`
+    opacity: ${props => props.isDescriptionFadeIn ? '0' : '1'};
+    transition: 0.2s;
+    `
 const JobButton = styled.div`
-    padding: 5px;
+    padding 5px;
     border-radius: 0px 5px 5px 0px;
     border: 1px solid #ffffff20;
-    text-align: center;
     color: ${props => props.brightMode ? '#4F4E66' : '#ffffff'};
-    
     font-family: 'Barlow', sans-serif;
-    margin-bottom: 15px;
+    margin-bottom: 18px;
     cursor: pointer;
     text-align: left;
 
@@ -256,5 +261,9 @@ const JobButton = styled.div`
     }
     &:focus {
         background: ${props => props.index === props.jobDescription ? 'blue' : '#262147'};
+    }
+
+    @media (max-width: 768px) {
+       width: 80px;
     }
 `

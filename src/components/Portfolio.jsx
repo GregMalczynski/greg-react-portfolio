@@ -33,13 +33,13 @@ const Portfolio = () => {
                 </Fade>
                 </MaskWrapper>
                 <ContentWrapper reverse={item.reverse}>
-                <Fade left>
-                    <div className='text-wrapper'>
-                        <h4 style={isMinRes ? {...appStylesData.minRes.h4} : {...appStylesData.maxRes.h4}}>{t(`Portfolio.List.${index}.PreTitle`)}</h4>
-                        <h2>{t(`Portfolio.List.${index}.Title`)}</h2>
-                        <br />
-                    </div>
-                </Fade>
+                    <Fade left>
+                        <div className='text-wrapper'>
+                            <h4 style={isMinRes ? {...appStylesData.minRes.h4} : {...appStylesData.maxRes.h4}}>{t(`Portfolio.List.${index}.PreTitle`)}</h4>
+                            <h3 style={isMinRes ? {...appStylesData.minRes.h3} : {...appStylesData.maxRes.h3}}>{t(`Portfolio.List.${index}.Title`)}</h3>
+                            <br />
+                        </div>
+                    </Fade>
                     <Description brightMode={brightMode}>
                     <Fade left>
                         <div>
@@ -81,6 +81,7 @@ const Wrapper = styled.div`
     display: flex;
     background: ${props => props.brightMode? bgColorModeData.brightMode.background : bgColorModeData.darkMode.background};
     justify-content: center;
+    transition: 0.2s;
 `
 const Container = styled.div`
     margin-left: 50px;
@@ -90,7 +91,7 @@ const Container = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: left;
-    gap: 20px;
+    gap: 5px;
 
     p{
         color: ${props => props.brightMode? '#5F5F92' : '#90AFAD'};
@@ -107,12 +108,15 @@ const Container = styled.div`
     h2{
         color: ${props => props.brightMode? '#4F4E66' : '#ffffff'};
     }
-    h3, h4 {
+    h4 {
         color: white;
         font-size: 2vw;
         font-weight: 400;
         color: ${props => props.brightMode? 'black' : '#ffffff'};
         text-align: ${props => props.reverse ? 'left' : 'right'};
+    }
+    h3{
+        color: ${props => props.brightMode ? '#4F4E66' : '#F4BC58'};
     }
 
     @media (max-width: 768px) {
@@ -121,7 +125,7 @@ const Container = styled.div`
         margin-right: 20px;
         flex-direction: column;
         justify-content: center;
-        gap: 20px;
+        gap: 3px;
     }
 `
 
@@ -131,6 +135,8 @@ const PortfolioContainer = styled.div`
     flex-direction: ${props => props.reverse ? 'row' : 'row-reverse'};
     justify-content: center;
     align-items: center;
+    margin-top: 20px;
+
 
     p{
         text-align: ${props => props.reverse ? 'right' : 'left'};

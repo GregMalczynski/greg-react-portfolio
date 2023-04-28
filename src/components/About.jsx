@@ -18,29 +18,29 @@ return(
     <Wrapper id='about' brightMode={brightMode}>
         <Container brightMode={brightMode}>
             <LeftSide>
-            <Fade left>
-                <h1 style={isMinRes ? {...appStylesData.minRes.h1} : {...appStylesData.maxRes.h1}}>{t('About.Front.1')}</h1><br />
-                <h2 style={isMinRes ? {...appStylesData.minRes.h2} : {...appStylesData.maxRes.h2}}>{t('About.Front.2')}</h2><br />
-                <p style={isMinRes ? {...appStylesData.minRes.p} : {...appStylesData.maxRes.p}}>{t('About.Front.3')}</p><br />
-            </Fade>
-            <Fade left>
-                <h3 style={isMinRes ? {...appStylesData.minRes.h3} : {...appStylesData.maxRes.h3}}>Front-End Technologies</h3>
-                <TechnologiesWrapper>
-                    {technologies.frontEnd.map((item, index) => <SmallBox key={index} brightMode={brightMode}><p>{item}</p></SmallBox>)}
-                </TechnologiesWrapper>
-            </Fade>
-            <Fade left>
-                <h3 style={isMinRes ? {...appStylesData.minRes.h3} : {...appStylesData.maxRes.h3}}>Back-End Technologies</h3>
-                <TechnologiesWrapper>
-                    {technologies.backEnd.map((item, index) => <SmallBox key={index} brightMode={brightMode}><p>{item}</p></SmallBox>)}
-                </TechnologiesWrapper>
-            </Fade>
-            <Fade left>
-                <h3 style={isMinRes ? {...appStylesData.minRes.h3} : {...appStylesData.maxRes.h3}}>Other Skills</h3>
-                <TechnologiesWrapper>
-                    {technologies.other.map((item, index) => <SmallBox key={index} brightMode={brightMode}><p>{item}</p></SmallBox>)}
-                </TechnologiesWrapper>
-            </Fade>
+                <Fade left>
+                    <h1 style={isMinRes ? {...appStylesData.minRes.h1} : {...appStylesData.maxRes.h1}}>{t('About.Front.1')}</h1>
+                    <h2 style={isMinRes ? {...appStylesData.minRes.h2} : {...appStylesData.maxRes.h2}}>{t('About.Front.2')}</h2><br />
+                    <p style={isMinRes ? {...appStylesData.minRes.p} : {...appStylesData.maxRes.p}}>{t('About.Front.3')}</p><br />
+                </Fade>
+                <Fade left>
+                    <h3 style={isMinRes ? {...appStylesData.minRes.h3} : {...appStylesData.maxRes.h3}}>Front-End Technologies</h3>
+                    <TechnologiesWrapper>
+                        {technologies.frontEnd.map((item, index) => <SmallBox key={index} brightMode={brightMode}><p>{item}</p></SmallBox>)}
+                    </TechnologiesWrapper>
+                </Fade>
+                <Fade left>
+                    <h3 style={isMinRes ? {...appStylesData.minRes.h3} : {...appStylesData.maxRes.h3}}>Back-End Technologies</h3>
+                    <TechnologiesWrapper>
+                        {technologies.backEnd.map((item, index) => <SmallBox key={index} brightMode={brightMode}><p>{item}</p></SmallBox>)}
+                    </TechnologiesWrapper>
+                </Fade>
+                <Fade left>
+                    <h3 style={isMinRes ? {...appStylesData.minRes.h3} : {...appStylesData.maxRes.h3}}>Other Skills</h3>
+                    <TechnologiesWrapper>
+                        {technologies.other.map((item, index) => <SmallBox key={index} brightMode={brightMode}><p>{item}</p></SmallBox>)}
+                    </TechnologiesWrapper>
+                </Fade>
             </LeftSide>
             <MiddleSide brightMode={brightMode}>
                 <Fade bottom>
@@ -49,17 +49,17 @@ return(
                 </Fade>
             </MiddleSide>
             <RightSide>
-            <Fade right>
-                <h1 style={isMinRes ? {...appStylesData.minRes.h1} : {...appStylesData.maxRes.h1}}>{t('About.Graphic.1')}</h1><br />
-                <h2 style={isMinRes ? {...appStylesData.minRes.h2} : {...appStylesData.maxRes.h2}}>{t('About.Graphic.2')}</h2><br />
-                <p style={isMinRes ? {...appStylesData.minRes.p} : {...appStylesData.maxRes.p}}>{t('About.Graphic.3')}</p><br />
-            </Fade>
-            <Fade right>
-            <h3 style={isMinRes ? {...appStylesData.minRes.h3} : {...appStylesData.maxRes.h3}}>I use Software</h3>
-            <TechnologiesWrapper>
-                {technologies.graphic.map((item, index) => <SmallBox key={index} brightMode={brightMode}><p>{item}</p></SmallBox>)}
-            </TechnologiesWrapper>
-            </Fade>
+                <Fade right>
+                    <h1 style={isMinRes ? {...appStylesData.minRes.h1} : {...appStylesData.maxRes.h1}}>{t('About.Graphic.1')}</h1>
+                    <h2 style={isMinRes ? {...appStylesData.minRes.h2} : {...appStylesData.maxRes.h2}}>{t('About.Graphic.2')}</h2><br />
+                    <p style={isMinRes ? {...appStylesData.minRes.p} : {...appStylesData.maxRes.p}}>{t('About.Graphic.3')}</p><br />
+                </Fade>
+                <Fade right>
+                    <h3 style={isMinRes ? {...appStylesData.minRes.h3} : {...appStylesData.maxRes.h3}}>I use Software</h3>
+                    <TechnologiesWrapper>
+                        {technologies.graphic.map((item, index) => <SmallBox key={index} brightMode={brightMode}><p>{item}</p></SmallBox>)}
+                    </TechnologiesWrapper>
+                </Fade>
             </RightSide>
         </Container>
     </Wrapper>
@@ -71,6 +71,7 @@ const Wrapper = styled.div`
     width: 100%;
     display: flex;
     background: ${props => props.brightMode? bgColorModeData.brightMode.background : bgColorModeData.darkMode.background};
+    transition: 0.2s;
 `
 const Container = styled.div`
     margin-left: 5.5vw;
@@ -91,19 +92,22 @@ const Container = styled.div`
         -webkit-text-fill-color: transparent;
         filter: ${props => props.brightMode ? 'drop-shadow(0.5vw 0.5vw #dadaf2)' : 'drop-shadow(0.5vw 0.5vw #262147)'};
     }
-    h2, h3, h4 {
+    h2, h4 {
         color: ${props => props.brightMode? '#4F4E66' : '#ffffff'};
+    }
+    h3{
+        color: ${props => props.brightMode ? '#4F4E66' : '#F4BC58'};
     }
 
     @media (max-width: 768px) {
-        margin-top: 10vh;
+        margin-top: 8vh;
         margin-left: 20px;
         margin-right: 20px;
         flex-direction: column;
         justify-content: center;
         gap: 20px;
         h1{
-            filter: ${props => props.brightMode? 'drop-shadow(5px 5px #dadaf2)' : 'drop-shadow(8px 8px #262147)'};
+            filter: ${props => props.brightMode? 'drop-shadow(0.5vw 0.5vw #dadaf2)' : 'drop-shadow(0.5vw 0.5vw #262147)'};
         }
     }
 `
@@ -112,6 +116,7 @@ const LeftSide = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: left;
+    gap: 5px;
 
     @media (max-width: 768px) {
         max-width: 100%;
@@ -144,6 +149,7 @@ const RightSide = styled.div`
     display: flex;
     flex-direction: column;
     align-items: flex-end;
+    gap: 5px;
     p{
         align-items: flex-end;
     }

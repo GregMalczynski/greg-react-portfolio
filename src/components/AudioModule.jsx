@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import styled from "styled-components";
 
 const audioUrl = './sounds/zhane-rl.mp3';
@@ -8,13 +8,21 @@ const AudioModule = () => {
 
     const [ isBtnOpen, setIsBtnOpen ] = useState(false);
     const [ isPlay, setIsPlay ] = useState(true);
+    const firstRender = useRef(true);
 
     useEffect(() => {
-        if ( isPlay ) {
+        if ( firstRender.current ) {
+            audio.muted = false;
             audio.play();
             audio.loop = true;
         } else {
-            audio.pause();
+            if ( isPlay ) {
+                audio.muted = false;
+                audio.play();
+                audio.loop = true;
+            } else {
+                audio.pause();
+            }
         }
     }, [isPlay]);
 
