@@ -1,15 +1,12 @@
 import styled from "styled-components";
 import { bgColorModeData } from "../app-data/bgColorModeData";
 
-const Intro = () => {
-    return(
+const Intro = () => 
         <Wrapper bgColorModeData={bgColorModeData}>
             <Img>
                 <img src="./logo.svg" alt="logo"/>
             </Img>
         </Wrapper>
-    )
-}
 
 export default Intro;
 

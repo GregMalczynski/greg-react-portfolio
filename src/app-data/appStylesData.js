@@ -1,7 +1,7 @@
 export const appStylesData = {
             maxRes : {
                 h1: {
-                    fontSize: '5.2vw',
+                    fontSize: '5vw',
                     fontWeight: '800',
                     lineHeight: '4.6vw',
                 },

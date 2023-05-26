@@ -6,7 +6,7 @@ export const portfolioData = [
         projectName: 'Gregs Portfolio Website',
         description: 'A minimal, dark blue theme for VS Code, Sublime Text, Atom, iTerm, and more. Available on Visual Studio Marketplace, Package Control, Atom Package Manager, and npm.',
         technologies: [
-            'HTML', 'Styled-Components', 'JavaScript', 'React', 'i18next', 'Illustrator'
+            'HTML', 'CSS', 'Styled-Components', 'JavaScript', 'React', 'i18next', 'EmailJS', 'Illustrator'
         ],
         git: 'https://github.com/GregMalczynski/greg-react-portfolio',
         website: '',

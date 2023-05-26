@@ -23,9 +23,14 @@ const Experience = () => {
         height: 0,
     });
     const [ isDescriptionFadeIn, setIsDescriptionFadeIn ] = useState(false);
+    const [ firstRender, setFirstRender ] = useState(false);
+
+    useEffect(() => {
+        setFirstRender(true)
+    }, [])
 
     const handleClick = (e, index) => {
-        indicator(e.target);
+        setMarkerStyle({top: e.target.offsetTop - 5, height: e.target.offsetHeight + 10 });
         setIsDescriptionFadeIn(true);
         setTimeout(() => {
             setJobDescription(index);
@@ -33,17 +38,13 @@ const Experience = () => {
         }, 200)
     };
 
-    const indicator = (e) => {
-        setMarkerStyle({top: e.offsetTop - 5, height: e.offsetHeight + 10 });
-    };
-
     const ButtonList = experienceData.map((item, index) => {
         return <JobButton 
-            key={`${ID}-${index}`} 
-            brightMode={brightMode}
+            key={`${ID}-${index}`}
+            id={`id-${index}`}
+            brightmode={brightMode ? 1 : undefined}
             isMinRes={isMinRes}
-            className='btn'
-            ref={myRef} 
+            className='btn' 
             style={index === jobDescription ? {background: '#26214720'} : {background: 'none'}}
             onClick={e => handleClick(e, index)}>
             <p style={isMinRes ? {...appStylesData.maxRes.h1} : {...appStylesData.maxRes.p}}>{isMinRes ? `#${index + 1}` : item.jobTitle}</p>
@@ -68,13 +69,28 @@ const Experience = () => {
     }
 
     useEffect(() => {
-        setMarkerStyle({top: myRef?.current.childNodes[0].offsetTop, height: myRef?.current.childNodes[0].offsetHeight})
+        if ( !firstRender ) {
+            setMarkerStyle({top: myRef.current.childNodes[0].offsetTop, height: myRef.current.childNodes[0].offsetHeight});
+
+        } else {
+            const readPos = () => {
+                setMarkerStyle({top: myRef.current.childNodes[jobDescription].offsetTop, height: myRef.current.childNodes[jobDescription].offsetHeight});
+            }
+
+        window.addEventListener('resize', readPos);
+        () => window.removeEventListener('resize', readPos);
+        }
+        
     }, [])
 
+    console.log(myRef)
+    console.log(jobDescription)
+    console.log(markerStyle.top + ' ' +  markerStyle.height)
+
 return(
-    <Wrapper id='experience' brightMode={brightMode}> 
-        <Container brightMode={brightMode}>
-            <LeftSide brightMode={brightMode}>
+    <Wrapper id='experience' brightmode={brightMode ? 1 : undefined}> 
+        <Container brightmode={brightMode ? 1 : undefined}>
+            <LeftSide brightmode={brightMode ? 1 : undefined}>
                 <Fade bottom>
                     {brightMode ? <img src='./experience-image-bright.svg' /> : <img src='./experience-image-dark.svg' />}
                 </Fade>
@@ -82,10 +98,10 @@ return(
             <RightSide>
                 <Section>
                     <Fade right>
-                        <h1 brightMode={brightMode} style={isMinRes ? {...appStylesData.minRes.h1} : {...appStylesData.maxRes.h1}}>{t('Experience.Title')}</h1>
+                        <h1 brightmode={brightMode ? 1 : undefined} style={isMinRes ? {...appStylesData.minRes.h1} : {...appStylesData.maxRes.h1}}>{t('Experience.Title')}</h1>
                     </Fade>
                     <Fade right>
-                        <h2 brightMode={brightMode} style={isMinRes ? {...appStylesData.minRes.h2} : {...appStylesData.maxRes.h2}}>{t('Experience.Subtitle')}</h2>
+                        <h2 brightmode={brightMode ? 1 : undefined} style={isMinRes ? {...appStylesData.minRes.h2} : {...appStylesData.maxRes.h2}}>{t('Experience.Subtitle')}</h2>
                     </Fade>
                 </Section>
                 <ExperienceWrapper>
@@ -95,12 +111,12 @@ return(
                                 <div className='marker'></div>
                             </Bar>
                             <Content >
-                                <div>
+                                <div ref={myRef}>
                                     {ButtonList}
                                 </div>
                             </Content>
                         </JobWrapper>
-                        <DescriptionWrapper brightMode={brightMode}>
+                        <DescriptionWrapper brightmode={brightMode ? 1 : undefined}>
                             {ExperienceTemplate()}
                         </DescriptionWrapper>
                     </Fade>
@@ -116,7 +132,7 @@ const Wrapper = styled.div`
     width: 100%;
     height: 100vh;
     display: flex;
-    background: ${props => props.brightMode? bgColorModeData.brightMode.background : bgColorModeData.darkMode.background};
+    background: ${props => props.brightmode? bgColorModeData.brightMode.background : bgColorModeData.darkMode.background};
     transition: 0.2s;
 `
 const Container = styled.div`
@@ -130,7 +146,7 @@ const Container = styled.div`
     gap: 50px;
 
     p{
-        color: ${props => props.brightMode ? '#5F5F92' : '#90AFAD'};
+        color: ${props => props.brightmode ? '#5F5F92' : '#90AFAD'};
     }
     h1{
         font-size: 5.2vw;
@@ -138,13 +154,13 @@ const Container = styled.div`
         background: linear-gradient(to right, #F99055 10%, #B94971 60%);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
-        filter: ${props => props.brightMode ? 'drop-shadow(0.5vw 0.5vw #dadaf2)' : 'drop-shadow(0.5vw 0.5vw #262147)'};
+        filter: ${props => props.brightmode ? 'drop-shadow(0.5vw 0.5vw #dadaf2)' : 'drop-shadow(0.5vw 0.5vw #262147)'};
     }
     h2, h4 {
-        color: ${props => props.brightMode ? '#4F4E66' : '#ffffff'};
+        color: ${props => props.brightmode ? '#4F4E66' : '#ffffff'};
     }
     h3{
-        color: ${props => props.brightMode ? '#4F4E66' : '#F4BC58'};
+        color: ${props => props.brightmode ? '#4F4E66' : '#F4BC58'};
     }
 
     @media (max-width: 768px) {
@@ -155,7 +171,7 @@ const Container = styled.div`
         justify-content: center;
         gap: 30px;
         h1{
-            filter: ${props => props.brightMode ? 'drop-shadow(0.5vw 0.5vw #dadaf2)' : 'drop-shadow(0.5vw 0.5vw #262147)'};
+            filter: ${props => props.brightmode ? 'drop-shadow(0.5vw 0.5vw #dadaf2)' : 'drop-shadow(0.5vw 0.5vw #262147)'};
         }
     }
 `
@@ -233,7 +249,7 @@ const Bar = styled.div`
 `
 const DescriptionWrapper = styled.div`
     width: 100%;
-    color: ${props => props.brightMode ? 'black' : '#ffffff'};
+    color: ${props => props.brightmode ? 'black' : '#ffffff'};
     ul {
         list-style-image: url("./hexagon-small.svg");
     }
@@ -250,7 +266,7 @@ const JobButton = styled.div`
     padding 5px;
     border-radius: 0px 5px 5px 0px;
     border: 1px solid #ffffff20;
-    color: ${props => props.brightMode ? '#4F4E66' : '#ffffff'};
+    color: ${props => props.brightmode ? '#4F4E66' : '#ffffff'};
     font-family: 'Barlow', sans-serif;
     margin-bottom: 18px;
     cursor: pointer;

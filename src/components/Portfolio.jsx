@@ -40,7 +40,7 @@ const Portfolio = () => {
                             <br />
                         </div>
                     </Fade>
-                    <Description brightMode={brightMode}>
+                    <Description brightmode={brightMode ? 1 : undefined}>
                     <Fade left>
                         <div>
                             <p style={isMinRes ? {...appStylesData.minRes.p} : {...appStylesData.maxRes.p}}>{t(`Portfolio.List.${index}.Description`)}</p>
@@ -49,7 +49,7 @@ const Portfolio = () => {
                     </Description>
                     <Fade left>
                     <TechnologiesWrapper reverse={item.reverse}>
-                        <p style={brightMode ? {color: '#5F5F92'} : {color: 'white'}}>{t(`Portfolio.Technologies`)}</p> {item.technologies.map((item, index) => <SmallBox key={index} brightMode={brightMode}><p>{item}</p></SmallBox>)}
+                        <p style={brightMode ? {color: '#5F5F92'} : {color: 'white'}}>{t(`Portfolio.Technologies`)}</p> {item.technologies.map((item, index) => <SmallBox key={index} brightmode={brightMode ? 1 : undefined}><p>{item}</p></SmallBox>)}
                     </TechnologiesWrapper>
                     <IconsWrapper reverse={item.reverse}>
                         <a href={item.git} target='_blank'><img src='./ico-github-dark.svg' /></a>
@@ -61,11 +61,11 @@ const Portfolio = () => {
     )}
 
 return(
-    <Wrapper id='portfolio' brightMode={brightMode}>
-        <Container brightMode={brightMode} >
+    <Wrapper id='portfolio' brightmode={brightMode ? 1 : undefined}>
+        <Container brightmode={brightMode ? 1 : undefined} >
             <Fade left>
-                <h1 brightMode={brightMode} style={isMinRes ? {...appStylesData.minRes.h1} : {...appStylesData.maxRes.h1}}>{t('Portfolio.Title')}</h1>
-                <h2 brightMode={brightMode} style={isMinRes ? {...appStylesData.minRes.h2} : {...appStylesData.maxRes.h2}}>{t('Portfolio.Subtitle')}</h2>
+                <h1 brightmode={brightMode ? 1 : undefined} style={isMinRes ? {...appStylesData.minRes.h1} : {...appStylesData.maxRes.h1}}>{t('Portfolio.Title')}</h1>
+                <h2 brightmode={brightMode ? 1 : undefined} style={isMinRes ? {...appStylesData.minRes.h2} : {...appStylesData.maxRes.h2}}>{t('Portfolio.Subtitle')}</h2>
                 {portfolioData.map((item, index) => {
                     return portfolioTemplateLeft(item, index)
                 })}
@@ -79,7 +79,7 @@ export default Portfolio;
 const Wrapper = styled.div`
     width: 100%;
     display: flex;
-    background: ${props => props.brightMode? bgColorModeData.brightMode.background : bgColorModeData.darkMode.background};
+    background: ${props => props.brightmode? bgColorModeData.brightMode.background : bgColorModeData.darkMode.background};
     justify-content: center;
     transition: 0.2s;
 `
@@ -94,7 +94,7 @@ const Container = styled.div`
     gap: 5px;
 
     p{
-        color: ${props => props.brightMode? '#5F5F92' : '#90AFAD'};
+        color: ${props => props.brightmode? '#5F5F93' : '#789A98'};
         text-align: ${props => props.reverse ? 'left' : 'right'};
     }
     h1{
@@ -103,20 +103,20 @@ const Container = styled.div`
         background: linear-gradient(to right, #F99055 10%, #B94971 45%);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
-        filter: ${props => props.brightMode ? 'drop-shadow(0.5vw 0.5vw #dadaf2)' : 'drop-shadow(0.5vw 0.5vw #262147)'};
+        filter: ${props => props.brightmode ? 'drop-shadow(0.5vw 0.5vw #dadaf2)' : 'drop-shadow(0.5vw 0.5vw #262147)'};
     }
     h2{
-        color: ${props => props.brightMode? '#4F4E66' : '#ffffff'};
+        color: ${props => props.brightmode? '#4F4E66' : '#ffffff'};
     }
     h4 {
         color: white;
         font-size: 2vw;
         font-weight: 400;
-        color: ${props => props.brightMode? 'black' : '#ffffff'};
+        color: ${props => props.brightmode? 'black' : '#ffffff'};
         text-align: ${props => props.reverse ? 'left' : 'right'};
     }
     h3{
-        color: ${props => props.brightMode ? '#4F4E66' : '#F4BC58'};
+        color: ${props => props.brightmode ? '#4F4E66' : '#F4BC58'};
     }
 
     @media (max-width: 768px) {
@@ -194,7 +194,7 @@ const ContentWrapper = styled.div`
 const Description = styled.div`
     
     div {
-        background: ${props => props.brightMode? bgColorModeData.brightMode.background : bgColorModeData.darkMode.background};
+        background: ${props => props.brightmode? bgColorModeData.brightMode.background : bgColorModeData.darkMode.background};
         padding: 30px;
         box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
     }
@@ -212,9 +212,9 @@ const SmallBox = styled.div`
     display: inline;
     padding: 5px;
     border-radius: 5px;
-    background: ${props => props.brightMode? '#BED4A9' : '#262147'};;
+    background: ${props => props.brightmode? '#DFDFEF' : '#262147'};;
     text-align: center;
-    color: ${props => props.brightMode? 'black' : '#ffffff'};
+    color: ${props => props.brightmode? 'black' : '#ffffff'};
     transition: 0.2s;
 
     &:hover {

@@ -22,17 +22,17 @@
         "Front": {
             "1": "ABOUT",
             "2": "FRONT-END DEVELOPER",
-            "3": "Front-End Developer with 2 years of experience as a freelancer, and graphic designer and designer with over 10 years of experience.I was exposed to the broader concept of computer science as early as elementary school through Basic and Pascal programming, which allowed me to understand the mechanics of how code works, as well as computer graphics."
+            "3": "I have been working as a Front-End Developer for more than 2 years. I am a Freelancer, I design and create simple websites, update and introduce new functionalities in web applications for international clients. I am very passionate about this field of programming, I am constantly increasing my knowledge and skills in CSS, JavaScript, the whole React environment and also the backend - NodeJs."
         },
         "Graphic": {
             "1": "ABOUT",
             "2": "GRAPHIC DESIGNER",
-            "3": "Front-End Developer with 2 years of experience as a freelancer, and graphic designer and designer with over 10 years of experience.I was exposed to the broader concept of computer science as early as elementary school through Basic and Pascal programming, which allowed me to understand the mechanics of how code works, as well as computer graphics."
+            "3": "I have been doing computer graphics and design for over 10 years. While working for many companies and as a freelancer, I was dealing with corporate identity, designing logos, website layouts, and I also did 3D graphics along with creating animations."
         }
     },
     "Experience": {
         "Title": "EXPERIENCE",
-        "Subtitle": "WHERE I'VE BEEN, WHAT I DID",
+        "Subtitle": "WHERE I'VE BEEN, WHAT I DID :)",
         "1": {
             "JobTitle": "Freelancer Graphic Designer / Front-End Developer / 3D Designer",
             "Description": [
@@ -83,13 +83,13 @@
         "Technologies": "Used Technologies",
         "List": [
             {
-                "PreTitle": "Latest Project",
-                "Title": "GREG'S PORTFOLIO WEBSITE",
+                "PreTitle": "Website",
+                "Title": "GREG'S PORTFOLIO",
                 "Description": "This is an internet site dedicated to me as a FRONT-END DEVELOPER and GRPAHIC DESIGNER. You can see here how I code and how I draw and also learn more information about me."
             },
             {
                 "PreTitle": "App",
-                "Title": "CHAT GPT APP",
+                "Title": "AI CHAT GPT",
                 "Description": "It is an application based on OpenAI ChatGTP. After giving your name, you can choose 6 topics of conversation with AI. When you select one of them, it displays a chat where you can chat."
             },
             {
@@ -100,13 +100,13 @@
             {
                 "PreTitle": "App",
                 "Title": "UNIQUE TODO LIST",
-                "Description": "It is an application based on OpenAI ChatGTP. After giving your name, you can choose 6 topics of conversation with AI. When you select one of them, it displays a chat where you can chat."
+                "Description": "The application includes a to-do list, where we enter the tasks to be done and the time. 10 seconds before the task time expires, a bell rings, after which the task is deleted."
             }
         ]
     },
     "Contact": {
         "Title": "CONTACT",
         "Subtitle": "GET IN TOUCH",
-        "Description": "Although I’m not currently looking for any new opportunities, my inbox is always open. Whether you have a question or just want to say hi, I’ll try my best to get back to you!"
+        "Description": "If You have any questions or would like to cooperate, please contact me :)"
     }
 }

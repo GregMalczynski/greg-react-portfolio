@@ -9,7 +9,6 @@ import { AppMinResContext } from '../context/AppMinResContext';
 const Nav = () => {
 
     const { t, i18n } = useTranslation();
-    const [ scrollValueY, setScrollValueY ] = useState(0);
     const [ isScroll, setIsScroll ] = useState(false);
 
     const {brightMode, setBrightMode} = useContext(AppMode);
@@ -26,34 +25,16 @@ const Nav = () => {
         isMinRes ? setShowSlideMenu(false) : setShowSlideMenu(false);
     }, [isMinRes]);
 
-    useEffect(() => {
-        window.addEventListener('scroll', scrollDetect);
-        return () => window.removeEventListener('scroll', scrollDetect);
-    });
-
-    const scrollDetect = () => {
-        if ( window.scrollY ) {
-            setScrollValueY(window.scrollY);
-            if ( window.pageYOffset != window.scrollY ) {
-                setIsScroll(true);
-            } else {
-                setIsScroll(false);
-            }
-        }
-    }
-
-    console.log('pageoffset ' + window.pageYOffset + 'scroll ' + window.scrollY)
-
   return(
-    <Wrapper brightMode={brightMode} isScroll={isScroll}>
+    <Wrapper brightmode={brightMode ? 1 : undefined}>
         <MenuSlideWrapper showSlideMenu={showSlideMenu}>
-            <MenuSlide showSlideMenu={showSlideMenu} isMinRes={isMinRes} brightMode={brightMode}>    
+            <MenuSlide showSlideMenu={showSlideMenu} isMinRes={isMinRes} brightmode={brightMode ? 1 : undefined}>    
                 <a href='#'>{t('Nav.Menu.1')}</a>
                 <a href='#about'>{t('Nav.Menu.2')}</a>
                 <a href='#experience'>{t('Nav.Menu.3')}</a>
                 <a href='#portfolio'>{t('Nav.Menu.4')}</a>
                 <a href='#contact'>{t('Nav.Menu.5')}</a>
-                <Mode brightMode={brightMode} isMinRes={isMinRes}>
+                <Mode brightmode={brightMode ? 1 : undefined} isMinRes={isMinRes}>
                     <button onClick={() => setBrightMode(!brightMode)}>Color Mode /<br /> {brightMode ? 'Dark' : 'Bright'}</button>
                     <button onClick={() => setIsPlLang(!isPlLang)}>Language<br />{isPlLang ? 'EN' : 'PL'}</button>
                 </Mode>
@@ -66,20 +47,20 @@ const Nav = () => {
             {
                 !isMinRes ? (
                 <FullMenu>
-                    <Items brightMode={brightMode}>
+                    <Items brightmode={brightMode ? 1 : undefined}>
                         <a href='#'>{t('Nav.Menu.1')}</a>
                         <a href='#about'>{t('Nav.Menu.2')}</a>
                         <a href='#experience'>{t('Nav.Menu.3')}</a>
                         <a href='#portfolio'>{t('Nav.Menu.4')}</a>
                         <a href='#contact'>{t('Nav.Menu.5')}</a>
                     </Items>
-                    <Mode brightMode={brightMode} isMinRes={isMinRes}>
+                    <Mode brightmode={brightMode ? 1 : undefined} isMinRes={isMinRes}>
                         <button onClick={() => setBrightMode(!brightMode)}>Color Mode / <br />{brightMode ? 'Dark' : 'Bright'}</button>
                         <button onClick={() => setIsPlLang(!isPlLang)}>Language<br />{isPlLang ? 'EN' : 'PL'}</button>
                     </Mode>
                 </FullMenu>
                 ) : (
-                <BurgerMenu brightMode={brightMode}>
+                <BurgerMenu brightmode={brightMode ? 1 : undefined}>
                     {!showSlideMenu ? (
                         <div>
                             {!brightMode ? (
@@ -111,7 +92,7 @@ const Wrapper = styled.div`
     width: 100%;
     height: 80px;
     display: flex;
-    background: ${props => props.brightMode? bgColorModeData.brightMode.background : bgColorModeData.darkMode.background};
+    background: ${props => props.brightmode? bgColorModeData.brightMode.background : bgColorModeData.darkMode.background};
     box-shadow: ${props => props.isScroll ? '0 6px 6px 0px #00000012' : 'none'};
     transition: 0.5s;
     z-index: 10;
@@ -119,7 +100,7 @@ const Wrapper = styled.div`
         text-decoration: none;
         padding: 8px;
         border-radius: 3px;
-        color: ${props => props.brightMode? '#4F4E66' : '#ffffff'};
+        color: ${props => props.brightmode? '#4F4E66' : '#ffffff'};
         transition: 0.2s;
     }
     a:hover {
@@ -147,7 +128,7 @@ const MenuSlide = styled.div`
     justify-content: top;
     align-items: center;
     margin-right: 0px;
-    background: ${props => props.brightMode ? bgColorModeData.brightMode.background : bgColorModeData.darkMode.background};
+    background: ${props => props.brightmode ? bgColorModeData.brightMode.background : bgColorModeData.darkMode.background};
     gap: 20px;
     transform: ${props => props.showSlideMenu ? 'translateX(0px)' : 'translateX(260px)'};
     transition: 0.3s;
@@ -166,7 +147,7 @@ const Menu = styled.div`
         margin-right: 20px;
         
         h1{
-            filter: ${props => props.brightMode? 'drop-shadow(5px 5px #BED4A9)' : 'drop-shadow(8px 8px #262147)'};
+            filter: ${props => props.brightmode? 'drop-shadow(5px 5px #BED4A9)' : 'drop-shadow(8px 8px #262147)'};
         }
     }
 `
@@ -185,7 +166,7 @@ const FullMenu = styled.div`
 `
 const BurgerMenu = styled.div`
     p{
-        color: ${props => props.brightMode? '#5F5F93' : '#789A98'};
+        color: ${props => props.brightmode? '#5F5F93' : '#789A98'};
     }
     img{
         opacity: 1;
@@ -208,14 +189,14 @@ const Mode = styled.div`
     button{
         width: 100px;
         padding: 6px;
-        border: 2px solid ${props => props.brightMode ? '#BED4A8' : '#ffffff'};
+        border: 2px solid ${props => props.brightmode ? '#BED4A8' : '#ffffff'};
         border-radius: 4px;
         background: none;
-        color: ${props => props.brightMode? 'black' : '#ffffff'};
+        color: ${props => props.brightmode? 'black' : '#ffffff'};
         cursor: pointer;
         transition: 0.2s;
     }
     button:hover {
-        border: 2px solid ${props => props.brightMode? '#49429A' : '#CB4A68'};
+        border: 2px solid ${props => props.brightmode? '#49429A' : '#CB4A68'};
     }
 `

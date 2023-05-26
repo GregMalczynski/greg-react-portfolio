@@ -11,17 +11,26 @@ const App = () => {
   const [ brightMode, setBrightMode ] = useState(false);
   const [ isPlLang, setIsPlLang ] = useState(false);
   const {isMinRes} = useWindowWidthSize();
-  const [ isIntro, setIsIntro ] = useState(true);
+  const [ isIntroPlay, setIsIntroPlay ] = useState(true);
 
   useEffect(() => {
-      setTimeout(() => {
-        setIsIntro(false)
-      }, 4000)
-  }, [])
+      const introPlay = () => {
+        setTimeout(() => {
+          setIsIntroPlay(false);
+        }, 4000)
+      } 
+
+      if ( document.readyState === 'complete' ) {
+        introPlay()
+      } else {
+        window.addEventListener('load', introPlay);
+        return () => window.removeEventListener('load', introPlay);
+      }
+  }, []);
 
   return(
     <>
-    {isIntro ? <Intro /> :
+    {isIntroPlay ? <Intro /> :
     <AppMode.Provider value={{brightMode, setBrightMode}}>
     <AppLang.Provider value={{isPlLang, setIsPlLang}}>
       <AppMinResContext.Provider value={{isMinRes}}>

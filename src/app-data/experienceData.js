@@ -2,7 +2,7 @@ export const  experienceData = [
     {
         jobTitle: 'Freelancer Graphic Designer / Front-End Developer / 3D Designer',
         company: 'Freelancer / 99designs / Poland',
-        period: 'current - 2010',
+        period: '2010 - 2023',
         description: [
             'Creating Landing Pages and simple web pages / applications using HTML5, CSS, JavaScript,',
             'Building components and new functionalities using ReactJs, using Styled-Components in styling,',
@@ -14,7 +14,7 @@ export const  experienceData = [
     {
         jobTitle: '3D Artist, Flash Designer / Developer, Front-End Developer',
         company: 'VG Media / United Kingdom',
-        period: '2006 - 2010',
+        period: '2007 - 2010',
         description: [
             'Creating short product videos based on 3D graphics (3D modeling, video editing, post-production) using 3D Studio Max, Adobe Premiere and Adobe After Effects, ',
             'Creating Flash components,',
@@ -24,7 +24,7 @@ export const  experienceData = [
     {
         jobTitle: 'Freelancer, Graphic Designer, Flash Developer',
         company: 'Freelancer / Poland',
-        period: '2007 - 2005',
+        period: '2004 - 2007',
         description: [
             'Creating Landing Pages and simple web pages / applications using HTML5, CSS, JavaScript,',
             'Building components and new functionalities using ReactJs, using Styled-Components in styling,',
@@ -36,7 +36,7 @@ export const  experienceData = [
     {
         jobTitle: 'Flash Developer, Graphic Designer',
         company: 'iNet Servis / Poland',
-        period: '2007 - 2005',
+        period: '2001 - 2004',
         description: [
             'Creating short product videos based on 3D graphics (3D modeling, video editing, post-production) using 3D Studio Max, Adobe Premiere and Adobe After Effects, ',
             'Creating Flash components,',
@@ -46,7 +46,7 @@ export const  experienceData = [
     {
         jobTitle: '3D Graphic Designer',
         company: 'Eureka Plus / Poland',
-        period: '2007 - 2005',
+        period: '1999 - 2001',
         description: [
             'Creating short product videos based on 3D graphics (3D modeling, video editing, post-production) using 3D Studio Max, Adobe Premiere and Adobe After Effects, ',
             'Creating Flash components,',

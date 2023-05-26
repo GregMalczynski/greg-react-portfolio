@@ -20,15 +20,15 @@ const Main = () => {
     }, [isPlLang]);
 
 return(
-    <Wrapper id='home' brightMode={brightMode}>
-        <Container brightMode={brightMode}>
+    <Wrapper id='home' brightmode={brightMode ? 1 : undefined}>
+        <Container brightmode={brightMode ? 1 : undefined}>
             <Fade left>
-            <LeftSide brightMode={brightMode} appStylesData={appStylesData}>
+            <LeftSide brightmode={brightMode ? 1 : undefined} appStylesData={appStylesData}>
                 <Section>
                     <h3 style={isMinRes ? {...appStylesData.minRes.h3} : {...appStylesData.maxRes.h3}}>{t('Home.1')}</h3>
                 </Section>
                 <Section>
-                    <h1 brightMode={brightMode} style={isMinRes ? {...appStylesData.minRes.h1} : {...appStylesData.maxRes.h1}}>GRZEGORZ<br />MALCZYNSKI</h1>
+                    <h1 brightmode={brightMode ? 1 : undefined} style={isMinRes ? {...appStylesData.minRes.h1} : {...appStylesData.maxRes.h1}}>GRZEGORZ<br />MALCZYNSKI</h1>
                 </Section>
                 <Section>
                     <h2 style={isMinRes ? {...appStylesData.minRes.h2} : {...appStylesData.maxRes.h2}}>FRONT-END DEVELOPER<br/>/ GRAPHIC DESIGNER</h2>
@@ -41,13 +41,13 @@ return(
                     <a href='https://github.com/GregMalczynski' target='_blank' ><img src='./ico-github-dark.svg' /></a>
                     <a href='https://www.codewars.com/users/GregoryMalczynski' target='_blank' ><img src='./ico-codewarz-dark.svg' /></a>
                 </IconsWrapper>
-                <Button brightMode={brightMode} isMinRes={isMinRes}>
+                <Button brightmode={brightMode ? 1 : undefined} isMinRes={isMinRes}>
                     <a href='#about' ><p>More About Me...</p></a>
                 </Button>
             </LeftSide>
             </Fade>
             <Fade right>
-            <RightSide brightMode={brightMode}> 
+            <RightSide brightmode={brightMode ? 1 : undefined}> 
                 {brightMode ? <img src='./home-image-bright-option.svg' /> : <img src='./home-image-dark.svg' />}
             </RightSide>
             </Fade>
@@ -60,7 +60,7 @@ export default Main;
 const Wrapper = styled.div`
     width: 100%;
     display: flex;
-    background: ${props => props.brightMode ? bgColorModeData.brightMode.background : bgColorModeData.darkMode.background};
+    background: ${props => props.brightmode ? bgColorModeData.brightMode.background : bgColorModeData.darkMode.background};
     transition: 0.2s;
 `
 const Container = styled.div`
@@ -76,19 +76,19 @@ const Container = styled.div`
     gap: 4vw;
 
     p{
-        color: ${props => props.brightMode ? '#5F5F93' : '#789A98'};
+        color: ${props => props.brightmode ? '#5F5F93' : '#789A98'};
     }
     h1{
         background: linear-gradient(to right, #F99055 10%, #B94971 90%);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
-        filter: ${props => props.brightMode ? 'drop-shadow(0.5vw 0.5vw #dadaf2)' : 'drop-shadow(0.5vw 0.5vw #262147)'};
+        filter: ${props => props.brightmode ? 'drop-shadow(0.5vw 0.5vw #dadaf2)' : 'drop-shadow(0.5vw 0.5vw #262147)'};
     }
     h2, h4 {
-        color: ${props => props.brightMode ? '#4F4E66' : '#ffffff'};
+        color: ${props => props.brightmode ? '#4F4E66' : '#ffffff'};
     }
     h3{
-        color: ${props => props.brightMode ? '#4F4E66' : '#F4BC58'};
+        color: ${props => props.brightmode ? '#4F4E66' : '#F4BC58'};
     }
     a{
         text-decoration: none;
@@ -102,7 +102,7 @@ const Container = styled.div`
         justify-content: center;
         gap: 50px;
         h1{
-            filter: ${props => props.brightMode ? 'drop-shadow(0.5vw 0.5vw #dadaf2)' : 'drop-shadow(0.5vw 0.5vw #262147)'};
+            filter: ${props => props.brightmode ? 'drop-shadow(0.5vw 0.5vw #dadaf2)' : 'drop-shadow(0.5vw 0.5vw #262147)'};
         }
     }
 `
@@ -165,11 +165,11 @@ const Button = styled.div`
     flex-direction: column;
     padding: 5px;
     border-radius: 5px;
-    border: 2px solid ${props => props.brightMode ? '#BED4A8' : '#ffffff'};
+    border: 2px solid ${props => props.brightmode ? '#BED4A8' : '#ffffff'};
     visibility: ${props => props.isMinRes ? 'hidden' : 'visible'};
     justify-content: center;
     align-items: center;
-    color: ${props => props.brightMode ? '#4F4E66' : '#ffffff'};
+    color: ${props => props.brightmode ? '#4F4E66' : '#ffffff'};
     font-family: 'Barlow', sans-serif;
     font-weight: 600;
     margin-bottom: 15px;
@@ -177,6 +177,6 @@ const Button = styled.div`
     transition: 0.2s;
 
     &:hover {
-        border: 2px solid ${props => props.brightMode ? '#49429A' : '#CB4A68'};
+        border: 2px solid ${props => props.brightmode ? '#49429A' : '#CB4A68'};
     }
 `

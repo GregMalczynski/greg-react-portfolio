@@ -1,5 +1,9 @@
 import { useState, useEffect, useRef } from 'react';
 import styled from "styled-components";
+import cassetteWheel from "/audiomodule/tape-player_wheel.svg";
+import btnPlay from '/audiomodule/btn-play.svg';
+import btnPause from '/audiomodule/btn-pause.svg';
+import btnOpenClose from '/audiomodule/btn-open-close.svg';
 
 const audioUrl = './sounds/zhane-rl.mp3';
 const audio = new Audio(audioUrl);
@@ -8,16 +12,19 @@ const AudioModule = () => {
 
     const [ isBtnOpen, setIsBtnOpen ] = useState(false);
     const [ isPlay, setIsPlay ] = useState(true);
-    const firstRender = useRef(true);
+    const [ firstRender, setFirstRender ] = useState(false);
 
     useEffect(() => {
-        if ( firstRender.current ) {
-            audio.muted = false;
+        setFirstRender(true)
+    }, [])
+
+    useEffect(() => {
+        if ( !firstRender ) {
             audio.play();
             audio.loop = true;
         } else {
             if ( isPlay ) {
-                audio.muted = false;
+                audio.pause();
                 audio.play();
                 audio.loop = true;
             } else {
@@ -30,18 +37,10 @@ const AudioModule = () => {
         <Wrapper>
             <SoundModule isBtnOpen={isBtnOpen}>
                 <LeftSection>
-                    <WheelOne isPlay={isPlay}>
-                        <img src='./audiomodule/tape-player_wheel.svg' />
-                    </WheelOne>
-                    <WheelTwo isPlay={isPlay}>
-                        <img src='./audiomodule/tape-player_wheel.svg' />
-                    </WheelTwo>
-                    <BtnPlay isPlay={isPlay}>
-                        <img onClick={() => setIsPlay(true)} src='./audiomodule/btn-play.svg' />
-                    </BtnPlay>
-                    <BtnPause isPlay={isPlay}>
-                        <img onClick={() => setIsPlay(false)} src='./audiomodule/btn-pause.svg' />
-                    </BtnPause>
+                    <WheelOne isPlay={isPlay} src={cassetteWheel}/>    
+                    <WheelTwo isPlay={isPlay} src={cassetteWheel}/>                
+                    <BtnPlay isPlay={isPlay} src={btnPlay} onClick={() => setIsPlay(true)}/>  
+                    <BtnPause isPlay={isPlay} src={btnPause} onClick={() => setIsPlay(false)}/>
                     <img src='./audiomodule/tape-player.svg' />
                 </LeftSection>
                 <RightSection>
@@ -49,9 +48,7 @@ const AudioModule = () => {
                         <p style={{color: 'white'}}>MU<br />SIC</p>
                         <p style={{color: 'black'}}>PA<br />NEL</p>
                     </Header>
-                    <Button isBtnOpen={isBtnOpen}>
-                        <img onClick={() => setIsBtnOpen(!isBtnOpen)} src='./audiomodule/btn-open-close.svg' />
-                    </Button>
+                    <Button isBtnOpen={isBtnOpen} src={btnOpenClose} onClick={() => setIsBtnOpen(!isBtnOpen)}/>
                 </RightSection>
             </SoundModule>
         </Wrapper>
@@ -70,7 +67,7 @@ const Wrapper = styled.div`
     z-index: 15;
 `
 const SoundModule = styled.div`
-    width: 300px;
+    width: 290px;
     height: 160px;
     display: flex;
     flex-direction: row;
@@ -87,6 +84,7 @@ const LeftSection = styled.div`
 const WheelOne = styled.div`
     width: 75px;
     height: 75px;
+    background: ${props => `url(${props.src})`};
     position: absolute;
     margin-left: 7px;
     margin-top: 7px;
@@ -109,10 +107,14 @@ const WheelTwo = styled(WheelOne)`
     margin-left: 90px;
     margin-top: 7px;
 `
-const BtnPlay = styled.div`
+const BtnPlay = styled.button`
+    width: 23px;
+    height: 23px;
     position: absolute;
     margin-left: 62px;
     margin-top: 103px;
+    border: none;
+    background: ${props => `url(${props.src})`};
     filter: ${props => props.isPlay ? 'drop-shadow(0px 0px #00000090)' : 'drop-shadow(2px 2px #00000090)'};
     transform: ${props => props.isPlay ? 'translate(2px, 2px)' : 'translate(0px, 0px)'};
     cursor: pointer;
@@ -137,13 +139,15 @@ const Header = styled.div`
         line-height: 21px;
     }
 `
-const Button = styled.div`
-    img{
-        cursor: pointer;
-        transform: ${props => props.isBtnOpen ? 'rotate(45deg)' : 'rotate(0deg)'};
-        transition: 0.3s;
-    }
-    img:hover{
+const Button = styled.button`
+    width: 49px;
+    height: 49px;
+    background: ${props => `url(${props.src})`};
+    border: none;
+    cursor: pointer;
+    transform: ${props => props.isBtnOpen ? 'rotate(45deg)' : 'rotate(0deg)'};
+    transition: 0.3s;
+
+    :hover{
         opacity: 0.7;
-    }
 `

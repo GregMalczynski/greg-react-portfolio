@@ -15,8 +15,8 @@ const About = () => {
     const {isMinRes} = useContext(AppMinResContext);
 
 return(
-    <Wrapper id='about' brightMode={brightMode}>
-        <Container brightMode={brightMode}>
+    <Wrapper id='about' brightmode={brightMode ? 1 : undefined}>
+        <Container brightmode={brightMode ? 1 : undefined}>
             <LeftSide>
                 <Fade left>
                     <h1 style={isMinRes ? {...appStylesData.minRes.h1} : {...appStylesData.maxRes.h1}}>{t('About.Front.1')}</h1>
@@ -26,23 +26,23 @@ return(
                 <Fade left>
                     <h3 style={isMinRes ? {...appStylesData.minRes.h3} : {...appStylesData.maxRes.h3}}>Front-End Technologies</h3>
                     <TechnologiesWrapper>
-                        {technologies.frontEnd.map((item, index) => <SmallBox key={index} brightMode={brightMode}><p>{item}</p></SmallBox>)}
+                        {technologies.frontEnd.map((item, index) => <SmallBox key={index} brightmode={brightMode ? 1 : undefined}><p>{item}</p></SmallBox>)}
                     </TechnologiesWrapper>
                 </Fade>
                 <Fade left>
                     <h3 style={isMinRes ? {...appStylesData.minRes.h3} : {...appStylesData.maxRes.h3}}>Back-End Technologies</h3>
                     <TechnologiesWrapper>
-                        {technologies.backEnd.map((item, index) => <SmallBox key={index} brightMode={brightMode}><p>{item}</p></SmallBox>)}
+                        {technologies.backEnd.map((item, index) => <SmallBox key={index} brightmode={brightMode ? 1 : undefined}><p>{item}</p></SmallBox>)}
                     </TechnologiesWrapper>
                 </Fade>
                 <Fade left>
                     <h3 style={isMinRes ? {...appStylesData.minRes.h3} : {...appStylesData.maxRes.h3}}>Other Skills</h3>
                     <TechnologiesWrapper>
-                        {technologies.other.map((item, index) => <SmallBox key={index} brightMode={brightMode}><p>{item}</p></SmallBox>)}
+                        {technologies.other.map((item, index) => <SmallBox key={index} brightmode={brightMode ? 1 : undefined}><p>{item}</p></SmallBox>)}
                     </TechnologiesWrapper>
                 </Fade>
             </LeftSide>
-            <MiddleSide brightMode={brightMode}>
+            <MiddleSide brightmode={brightMode ? 1 : undefined}>
                 <Fade bottom>
                 <div />
                 {brightMode ? <img src='./about-image-bright.svg' /> : <img src='./about-image-dark.svg' />}
@@ -57,7 +57,7 @@ return(
                 <Fade right>
                     <h3 style={isMinRes ? {...appStylesData.minRes.h3} : {...appStylesData.maxRes.h3}}>I use Software</h3>
                     <TechnologiesWrapper>
-                        {technologies.graphic.map((item, index) => <SmallBox key={index} brightMode={brightMode}><p>{item}</p></SmallBox>)}
+                        {technologies.graphic.map((item, index) => <SmallBox key={index} brightmode={brightMode ? 1 : undefined}><p>{item}</p></SmallBox>)}
                     </TechnologiesWrapper>
                 </Fade>
             </RightSide>
@@ -70,7 +70,7 @@ export default About;
 const Wrapper = styled.div`
     width: 100%;
     display: flex;
-    background: ${props => props.brightMode? bgColorModeData.brightMode.background : bgColorModeData.darkMode.background};
+    background: ${props => props.brightmode? bgColorModeData.brightMode.background : bgColorModeData.darkMode.background};
     transition: 0.2s;
 `
 const Container = styled.div`
@@ -84,19 +84,19 @@ const Container = styled.div`
     gap: 10px;
 
     p{
-        color: ${props => props.brightMode? '#5F5F92' : '#90AFAD'};
+        color: ${props => props.brightmode? '#5F5F92' : '#90AFAD'};
     }
     h1{
         background: linear-gradient(to right, #F99055 10%, #B94971 80%);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
-        filter: ${props => props.brightMode ? 'drop-shadow(0.5vw 0.5vw #dadaf2)' : 'drop-shadow(0.5vw 0.5vw #262147)'};
+        filter: ${props => props.brightmode ? 'drop-shadow(0.5vw 0.5vw #dadaf2)' : 'drop-shadow(0.5vw 0.5vw #262147)'};
     }
     h2, h4 {
-        color: ${props => props.brightMode? '#4F4E66' : '#ffffff'};
+        color: ${props => props.brightmode? '#4F4E66' : '#ffffff'};
     }
     h3{
-        color: ${props => props.brightMode ? '#4F4E66' : '#F4BC58'};
+        color: ${props => props.brightmode ? '#4F4E66' : '#F4BC58'};
     }
 
     @media (max-width: 768px) {
@@ -107,7 +107,7 @@ const Container = styled.div`
         justify-content: center;
         gap: 20px;
         h1{
-            filter: ${props => props.brightMode? 'drop-shadow(0.5vw 0.5vw #dadaf2)' : 'drop-shadow(0.5vw 0.5vw #262147)'};
+            filter: ${props => props.brightmode? 'drop-shadow(0.5vw 0.5vw #dadaf2)' : 'drop-shadow(0.5vw 0.5vw #262147)'};
         }
     }
 `
@@ -138,7 +138,7 @@ const MiddleSide = styled.div`
         }
         div{
             display: block;
-            background: ${props => props.brightMode? 'black' : '#ffffff'};
+            background: ${props => props.brightmode? 'black' : '#ffffff'};
             width: 100px;
             height: 3px;
         }
@@ -164,7 +164,7 @@ const RightSide = styled.div`
 `
 const TechnologiesWrapper = styled.div`
     max-width: 450px;
-    max-height: 70px;
+    max-height: 140px;
     margin-top: 5px;
     margin-bottom: 20px;
     display: flex;
@@ -176,9 +176,9 @@ const SmallBox = styled.div`
     display: inline;
     padding: 5px;
     border-radius: 5px;
-    background: ${props => props.brightMode? '#BED4A9' : '#262147'};;
+    background: ${props => props.brightmode? '#DFDFEF' : '#262147'};;
     text-align: center;
-    color: ${props => props.brightMode? 'black' : '#ffffff'};
+    color: ${props => props.brightmode? 'black' : '#ffffff'};
     transition: 0.2s;
 
     &:hover {

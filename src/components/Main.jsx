@@ -11,7 +11,7 @@ const Main = () =>
 
     <Wrapper>
         <Nav />
-        <AudioModule />
+        {/* <AudioModule /> */}
         <Home />
         <About />
         <Experience />
