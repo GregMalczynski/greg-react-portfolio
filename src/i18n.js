@@ -22,13 +22,22 @@ i18n
   // init i18next
   // for all options read: https://www.i18next.com/overview/configuration-options
   .init({
+    lng: 'en',
     fallbackLng: 'en',
     debug: true,
     whitelist: availableLanguages,
 
     interpolation: {
       escapeValue: false, // not needed for react as it escapes by default
-    }
+    },
+    keySeparator: false,
+        backend: {
+            loadPath: "/locales/{{lng}}/{{ns}}.json",
+            crossDomain: true
+        },
+        react: {
+            wait: true,
+        }
   });
 
 export default i18n;
