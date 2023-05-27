@@ -204,7 +204,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
         margin-right: 20px;
         flex-direction: column;
         justify-content: center;
-        gap: 70px;
+        gap: 50px;
         h1{
             filter: ${e=>e.brightmode?"drop-shadow(0.5vw 0.5vw #dadaf2)":"drop-shadow(0.5vw 0.5vw #262147)"};
         }
@@ -426,7 +426,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
         height: 100vh;
         margin-left: 20px;
         margin-right: 20px;
-        margin-top: 0vh;
+        margin-top: 40px;
         flex-direction: column;
         justify-content: center;
         gap: 30px;
