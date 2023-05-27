@@ -144,7 +144,7 @@ const Form = ({brightmode}) => {
 export default Form;
 
 const Wrapper = styled.div`
-    min-width: 400px;
+    min-width: 320px;
 `
 const FormSection = styled.form`
     display: flex;

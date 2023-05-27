@@ -77,7 +77,6 @@ const Container = styled.div`
     margin-left: 5.5vw;
     margin-right: 5.5vw;
     width: 100%;
-    height: 100vh;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -100,7 +99,7 @@ const Container = styled.div`
     }
 
     @media (max-width: 768px) {
-        margin-top: 8vh;
+        margin-top: 10vh;
         margin-left: 20px;
         margin-right: 20px;
         flex-direction: column;

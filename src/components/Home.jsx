@@ -59,6 +59,7 @@ export default Main;
 
 const Wrapper = styled.div`
     width: 100%;
+    height: 100vh;
     display: flex;
     background: ${props => props.brightmode ? bgColorModeData.brightMode.background : bgColorModeData.darkMode.background};
     transition: 0.2s;
@@ -67,7 +68,7 @@ const Container = styled.div`
     margin-left: 50px;
     margin-right: 50px;
     margin-top: 40px;
-    width: 100%;
+    width: 100vw;
     height: 100vh;
     display: flex;
     flex-direction: row;
@@ -95,12 +96,12 @@ const Container = styled.div`
     }
 
     @media (max-width: 768px) {
-        margin-top: 0vh;
+        margin-top: 40px;
         margin-left: 20px;
         margin-right: 20px;
         flex-direction: column;
         justify-content: center;
-        gap: 50px;
+        gap: 70px;
         h1{
             filter: ${props => props.brightmode ? 'drop-shadow(0.5vw 0.5vw #dadaf2)' : 'drop-shadow(0.5vw 0.5vw #262147)'};
         }

@@ -89,7 +89,7 @@ export default Nav;
 
 const Wrapper = styled.div`
     position: fixed;
-    width: 100%;
+    width: 100vw;
     height: 80px;
     display: flex;
     background: ${props => props.brightmode? bgColorModeData.brightMode.background : bgColorModeData.darkMode.background};
