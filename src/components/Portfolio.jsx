@@ -201,7 +201,7 @@ const Description = styled.div`
 `
 const TechnologiesWrapper = styled.div`
     max-width: 100%;
-    max-height: 70px;
+    max-height: 100px;
     margin-top: 18px;
     display: flex;
     flex-wrap: wrap;

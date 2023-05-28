@@ -74,7 +74,7 @@ const Container = styled.div`
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    gap: 4vw;
+    gap: 70px;
 
     p{
         color: ${props => props.brightmode ? '#5F5F93' : '#789A98'};
@@ -96,12 +96,12 @@ const Container = styled.div`
     }
 
     @media (max-width: 768px) {
-        margin-top: 40px;
+        margin-top: 30px;
         margin-left: 20px;
         margin-right: 20px;
         flex-direction: column;
         justify-content: center;
-        gap: 70px;
+        gap: 40px;
         h1{
             filter: ${props => props.brightmode ? 'drop-shadow(0.5vw 0.5vw #dadaf2)' : 'drop-shadow(0.5vw 0.5vw #262147)'};
         }

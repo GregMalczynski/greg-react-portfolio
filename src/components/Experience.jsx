@@ -167,7 +167,7 @@ const Container = styled.div`
         height: 100vh;
         margin-left: 20px;
         margin-right: 20px;
-        margin-top: 0vh;
+        margin-top: 40px;
         flex-direction: column;
         justify-content: center;
         gap: 30px;

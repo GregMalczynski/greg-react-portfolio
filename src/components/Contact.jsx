@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { AppMode } from '../context/AppMode';
 import { bgColorModeData } from '../app-data/bgColorModeData';
 import { AppMinResContext } from '../context/AppMinResContext';
@@ -7,6 +7,9 @@ import { appStylesData } from '../app-data/appStylesData';
 import { useTranslation } from 'react-i18next';
 import Form from './contact-form/Form';
 import Fade from 'react-reveal/Fade';
+import SendHero from './contact-form/SendHero';
+import LoaderWheel from './contact-form/LoaderWheel';
+import Bubble from './contact-form/Bubble';
 
 const Contact = () => {
 
@@ -14,8 +17,35 @@ const Contact = () => {
     const {brightMode} = useContext(AppMode);
     const {isMinRes} = useContext(AppMinResContext);
 
+    const [ messageSend, setMessageSend ] = useState(false);
+    const [ showMessageSend, setShowMessageSend ] = useState(false);
+    const [ showBubble, setShowBubble ] = useState(false)
+
+    const handleSendMessage = () => {
+        setMessageSend(true)
+        setTimeout(() => {
+            setMessageSend(false)
+            setShowMessageSend(true)
+            setShowBubble(true)
+            const show = () => setTimeout(() => {
+                setShowMessageSend(false)
+                setShowBubble(false)
+            }, 3500)
+            show()
+        }, 3000)
+    }
+
 return(
     <Wrapper id='contact' brightmode={brightMode ? 1 : undefined}>
+        <SendHeroWrapper showMessageSend={showMessageSend}>
+            <SendHero />
+        </SendHeroWrapper>
+        <BubbleWrapper showBubble={showBubble}>
+            <Bubble />
+        </BubbleWrapper> 
+        <LoaderWheelWrapper messageSend={messageSend}>
+            <LoaderWheel />  
+        </LoaderWheelWrapper>
         <Container brightmode={brightMode ? 1 : undefined}>
             <MainSection>
                 <Fade left>
@@ -43,7 +73,10 @@ return(
                             </IconsWrapper>
                         </SectionLeft>
                         <SectionRight>
-                            <Form brightmode={brightMode ? 1 : undefined}/>
+                            <Form 
+                                brightmode={brightMode ? 1 : undefined} 
+                                handleSendMessage={handleSendMessage}
+                            />
                         </SectionRight>
                     </SectionBottom>
                 <Footer>
@@ -166,8 +199,44 @@ const Img = styled.div`
             height: 26vh;
         }
     }
-
 `
 const Footer = styled.div`
     
+`
+
+const SendHeroWrapper = styled.div`
+    z-index: 20;
+    position: absolute;
+    width: 100vw;
+    display: flex;
+    align-items: right;
+    justify-content: flex-end;
+    margin-top: 50vh;
+    transform: ${props => props.showMessageSend ? 'translateX(0px)' : 'translateX(180px)'};
+    visibility: ${props => props.showMessageSend ? 'visible' : 'hidden'};
+    transition: 0.2s;
+`
+const BubbleWrapper = styled.div`
+    z-index: 20;
+    position: absolute;
+    width: 100vw;
+    display: flex;
+    align-items: right;
+    justify-content: flex-end;
+    transform: ${props => props.showBubble ? 'translateX(-135px)' : 'translateX(180px)'};
+    visibility: ${props => props.showBubble ? 'visible' : 'hidden'};
+    margin-top: 50vh;
+    transition: 0.6s;
+`
+const LoaderWheelWrapper = styled.div`
+    z-index: 21;
+    position: absolute;
+    width: 100vw;
+    display: flex;
+    align-items: right;
+    justify-content: center;
+    margin-top: 50vh;
+    visibility: ${props => props.messageSend ? 'visible' : 'hidden'};
+    opacity: ${props => props.messageSend ? '1' : '0'};
+    transition: 0.5s;
 `

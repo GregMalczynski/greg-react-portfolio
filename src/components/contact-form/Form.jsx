@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { useState, useEffect, useRef } from 'react';
 import emailjs from '@emailjs/browser';
 
-const Form = ({brightmode}) => {
+const Form = ({brightmode, handleSendMessage}) => {
 
     const form = useRef();
 
@@ -25,23 +25,37 @@ const Form = ({brightmode}) => {
         setFirstRender(true)
     }, [])
 
+    const handleChangeUsername = (e) => {
+        setUserName(e.target.value)
+    }
+
+    const handleChangeUseremail = (e) => {
+        setUserEmail(e.target.value)
+    }
+
+    const handleChangeUsermessage = (e) => {
+        setUserMessage(e.target.value)
+    }
+
     useEffect(() => {
         if ( !firstRender ) {
             setIsError({...isError, userName: ''})
         } else {
             if ( !userName || userName == '' ) {
-                setIsError({...isError, userName: 'Name cant be empty'})
+                setIsError({...isError, userName: 'Name cant be empty'});
+                form.current[0].style.border = '2px solid #F2BB57';
             } else {
-                if ( userName.length < 3 || userName.length > 12 ) {
-                    setIsError({...isError, userName: 'Name length should be between ( 3 - 12 ) characters.'})
-                    setIsValidate({...validate, userName: false})
+                if ( userName.length < 3 || userName.length > 22 ) {
+                    setIsError({...isError, userName: 'Name length should be between ( 3 - 22 ) characters.'});
+                    setIsValidate({...validate, userName: false});
+                    form.current[0].style.border = '2px solid #F2BB57';
                 } else {
-                    setIsError({...isError, userName: ''})
-                    setIsValidate({...validate, userName: true})
+                    setIsError({...isError, userName: ''});
+                    setIsValidate({...validate, userName: true});
+                    form.current[0].style.border = 'none';
                 }
             }
         }
-        
     }, [userName])
 
     useEffect(() => {
@@ -53,30 +67,35 @@ const Form = ({brightmode}) => {
             setIsError({...isError, userEmail: ''})
         } else {
             if ( !userEmail || userEmail == '' ) {
-                setIsError({...isError, userEmail: 'Email cant be empty'})
+                setIsError({...isError, userEmail: 'Email cant be empty'});
+                form.current[1].style.border = '2px solid #F2BB57';
             } else {
                 if ( !userEmail.match(validParm.textFormat) ) {
-                    setIsError({...isError, userEmail: 'Wrong email adress format.'})
-                    setIsValidate({...validate, userEmail: false})
+                    setIsError({...isError, userEmail: 'Wrong email adress format.'});
+                    setIsValidate({...validate, userEmail: false});
+                    form.current[1].style.border = '2px solid #F2BB57';
                 } else {
-                    setIsError({...isError, userEmail: ''})
-                    setIsValidate({...validate, userEmail: true})
+                    setIsError({...isError, userEmail: ''});
+                    setIsValidate({...validate, userEmail: true});
+                    form.current[1].style.border = 'none';
                 }
             }
-        }
-            
+        } 
     }, [userEmail])
 
-    useEffect(() => {
+    useEffect(() => {  
         if ( !firstRender ) {
-            setIsError({...isError, userMessage: ''})
+            setIsError({...isError, userMessage: ''});
+            form.current[2].style.border = 'none';
         } else {
             if ( !userMessage || userMessage == '' ) {
-                setIsError({...isError, userMessage: 'Message cant be empty'})
-                setIsValidate({...validate, userMessage: false})
+                setIsError({...isError, userMessage: 'Message cant be empty'});
+                setIsValidate({...validate, userMessage: false});
+                form.current[2].style.border = '2px solid #F2BB57';
             } else {
-                setIsError({...isError, userMessage: ''})
-                setIsValidate({...validate, userMessage: true})
+                setIsError({...isError, userMessage: ''});
+                setIsValidate({...validate, userMessage: true});
+                form.current[2].style.border = 'none';
             }
         }
     }, [userMessage])
@@ -95,11 +114,20 @@ const Form = ({brightmode}) => {
             console.log(error.text);
             });
 
-            setUserName('');
-            setUserEmail('');
-            setUserMessage('');
+            handleSendMessage();
+
+            setTimeout(() => {
+                setUserName('');
+                setUserEmail('');
+                setUserMessage('');
+                setFirstRender(true);
+            }, 3000)
 
         } else {
+            form.current[0].focus()
+            !validate.userName ? form.current[0].style.border = '2px solid #F2BB57' : form.current[0].style.border = 'none'
+            !validate.userEmail ? form.current[1].style.border = '2px solid #F2BB57' : form.current[1].style.border = 'none'
+            !validate.userMessage ? form.current[2].style.border = '2px solid #F2BB57' : form.current[2].style.border = 'none'
             console.log('Incorrect form')
         }
     }
@@ -114,7 +142,7 @@ const Form = ({brightmode}) => {
                     name="user_name" 
                     placeholder="name" 
                     value={userName} 
-                    onChange={(e) => setUserName(e.target.value)}/>
+                    onChange={handleChangeUsername}/>
                 <p>{isError.userName}</p>
                 <Input 
                     isError={isError.userEmail.length}
@@ -123,7 +151,7 @@ const Form = ({brightmode}) => {
                     name="user_email" 
                     placeholder="email" 
                     value={userEmail} 
-                    onChange={(e) => setUserEmail(e.target.value)}/>
+                    onChange={handleChangeUseremail}/>
                 <p>{isError.userEmail}</p>
                 <TextArea 
                     isError={isError.userMessage.length}
@@ -131,7 +159,7 @@ const Form = ({brightmode}) => {
                     name="message" 
                     placeholder="message" 
                     value={userMessage} 
-                    onChange={(e) => setUserMessage(e.target.value)}/>
+                    onChange={handleChangeUsermessage}/>
                 <p>{isError.userMessage}</p>
                 <Button 
                     brightmode={brightmode ? 1 : undefined} 
@@ -160,7 +188,7 @@ const FormSection = styled.form`
 const Input = styled.input`
     padding: 5px;
     border-radius: 3px;
-    border: ${props => props.isError > 0 ? '2px solid #F2BB57' : 'none'};
+    border: ${props => props.isError > 0 ? 'none' : 'none'};
     color: ${props => props.brightmode ? '#4F4E66' : 'white'};
     background: ${props => props.brightmode ? '#E4E4EF' : '#173D3A'};
 
