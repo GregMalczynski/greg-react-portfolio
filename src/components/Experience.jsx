@@ -83,10 +83,6 @@ const Experience = () => {
         
     }, [])
 
-    console.log(myRef)
-    console.log(jobDescription)
-    console.log(markerStyle.top + ' ' +  markerStyle.height)
-
 return(
     <Wrapper id='experience' brightmode={brightMode ? 1 : undefined}> 
         <Container brightmode={brightMode ? 1 : undefined}>

@@ -37,15 +37,17 @@ const Contact = () => {
 
 return(
     <Wrapper id='contact' brightmode={brightMode ? 1 : undefined}>
+        <LoaderWheelWrapper messageSend={messageSend}>
+            <LoaderWheel />  
+        </LoaderWheelWrapper>
+        <FeaturesWrapper showMessageSend={showMessageSend}>
         <SendHeroWrapper showMessageSend={showMessageSend}>
             <SendHero />
         </SendHeroWrapper>
         <BubbleWrapper showBubble={showBubble}>
             <Bubble />
         </BubbleWrapper> 
-        <LoaderWheelWrapper messageSend={messageSend}>
-            <LoaderWheel />  
-        </LoaderWheelWrapper>
+        </FeaturesWrapper>
         <Container brightmode={brightMode ? 1 : undefined}>
             <MainSection>
                 <Fade left>
@@ -203,40 +205,47 @@ const Img = styled.div`
 const Footer = styled.div`
     
 `
-
-const SendHeroWrapper = styled.div`
-    z-index: 20;
+const FeaturesWrapper = styled.div`
+    width: 100%;
+    height: 100vh;
     position: absolute;
-    width: 100vw;
+    display: flex;
+    justify-content: flex-end;
+    visibility: ${props => props.showMessageSend ? 'visible' : 'hidden'};
+    z-index: 21;
+    overflow-x: hidden;
+`
+const SendHeroWrapper = styled.div` 
+    width: 160px;
+    position: absolute;
     display: flex;
     align-items: right;
     justify-content: flex-end;
     margin-top: 50vh;
-    transform: ${props => props.showMessageSend ? 'translateX(0px)' : 'translateX(180px)'};
-    visibility: ${props => props.showMessageSend ? 'visible' : 'hidden'};
+    transform: ${props => props.showMessageSend ? 'translateX(0px)' : 'translateX(200px)'};
     transition: 0.2s;
+    z-index: 20;
 `
 const BubbleWrapper = styled.div`
-    z-index: 20;
-    position: absolute;
-    width: 100vw;
+    width: 140px;
+    position: relative;
     display: flex;
     align-items: right;
     justify-content: flex-end;
-    transform: ${props => props.showBubble ? 'translateX(-135px)' : 'translateX(180px)'};
-    visibility: ${props => props.showBubble ? 'visible' : 'hidden'};
     margin-top: 50vh;
+    transform: ${props => props.showBubble ? 'translateX(-130px) translateY(-150px)' : 'translateX(200px) translateY(-150px)'};
     transition: 0.6s;
+    z-index: 19;
 `
 const LoaderWheelWrapper = styled.div`
-    z-index: 21;
-    position: absolute;
     width: 100vw;
+    position: absolute;
     display: flex;
-    align-items: right;
+    align-items: center;
     justify-content: center;
-    margin-top: 50vh;
-    visibility: ${props => props.messageSend ? 'visible' : 'hidden'};
+    margin-top: 75vh;
     opacity: ${props => props.messageSend ? '1' : '0'};
-    transition: 0.5s;
+    visibility: ${props => props.messageSend ? 'visible' : 'hidden'};
+    transition: 0.4s;
+    z-index: 18;
 `

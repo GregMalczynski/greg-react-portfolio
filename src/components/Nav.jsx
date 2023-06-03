@@ -96,6 +96,7 @@ const Wrapper = styled.div`
     box-shadow: ${props => props.isScroll ? '0 6px 6px 0px #00000012' : 'none'};
     transition: 0.5s;
     z-index: 10;
+    
     a{
         text-decoration: none;
         padding: 8px;
@@ -131,10 +132,11 @@ const MenuSlide = styled.div`
     background: ${props => props.brightmode ? bgColorModeData.brightMode.background : bgColorModeData.darkMode.background};
     gap: 20px;
     transform: ${props => props.showSlideMenu ? 'translateX(0px)' : 'translateX(260px)'};
+    visibility: ${props => props.showSlideMenu ? 'visible' : 'hidden'};
     transition: 0.3s;
 `
 const Menu = styled.div`
-    width: 100%;
+    width: 100vw;
     display: flex;
     justify-content: space-between;
     align-items: center;

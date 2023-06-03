@@ -8,7 +8,6 @@ const LoaderWheel = () =>
 export default LoaderWheel;
 
 const Div = styled.div`
-    display: inline-block;
     position: relative;
     width: 80px;
     height: 80px;

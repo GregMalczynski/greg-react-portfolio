@@ -53,7 +53,7 @@ const Portfolio = () => {
                     </TechnologiesWrapper>
                     <IconsWrapper reverse={item.reverse}>
                         <a href={item.git} target='_blank'><img src='./ico-github-dark.svg' /></a>
-                        <img src='./ico-enter-dark.svg' />
+                        {/* <img src='./ico-enter-dark.svg' /> */}
                     </IconsWrapper>
                     </Fade>
                 </ContentWrapper>
