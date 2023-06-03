@@ -286,6 +286,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
     background: ${e=>e.brightmode?Oe.brightMode.background:Oe.darkMode.background};
     transition: 0.2s;
 `,Zv=N.div`
+    margin-top: 80px;
     margin-left: 5.5vw;
     margin-right: 5.5vw;
     width: 100%;
@@ -392,14 +393,13 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
     }
 `,Ai=[{jobTitle:"Freelancer Graphic Designer / Front-End Developer / 3D Designer",company:"Freelancer / 99designs / Poland",period:"2010 - 2023",description:["Creating Landing Pages and simple web pages / applications using HTML5, CSS, JavaScript,","Building components and new functionalities using ReactJs, using Styled-Components in styling,","Visual identity activities (logos, branding),","Designing graphics, layouts and mockups of websites, applications using Adobe Photoshop, Adobe Illustrator , Figma, Adobe XD,","Interior visualization using SketchUp and V-Ray photorealistic rendering."]},{jobTitle:"3D Artist, Flash Designer / Developer, Front-End Developer",company:"VG Media / United Kingdom",period:"2007 - 2010",description:["Creating short product videos based on 3D graphics (3D modeling, video editing, post-production) using 3D Studio Max, Adobe Premiere and Adobe After Effects, ","Creating Flash components,","Designing and building websites based on HTML, CSS and Flash / ActionScript."]},{jobTitle:"Freelancer, Graphic Designer, Flash Developer",company:"Freelancer / Poland",period:"2004 - 2007",description:["Creating Landing Pages and simple web pages / applications using HTML5, CSS, JavaScript,","Building components and new functionalities using ReactJs, using Styled-Components in styling,","Visual identity activities (logos, branding),","Designing graphics, layouts and mockups of websites, applications using Adobe Photoshop, Adobe Illustrator , Figma, Adobe XD,","Interior visualization using SketchUp and V-Ray photorealistic rendering."]},{jobTitle:"Flash Developer, Graphic Designer",company:"iNet Servis / Poland",period:"2001 - 2004",description:["Creating short product videos based on 3D graphics (3D modeling, video editing, post-production) using 3D Studio Max, Adobe Premiere and Adobe After Effects, ","Creating Flash components,","Designing and building websites based on HTML, CSS and Flash / ActionScript."]},{jobTitle:"3D Graphic Designer",company:"Eureka Plus / Poland",period:"1999 - 2001",description:["Creating short product videos based on 3D graphics (3D modeling, video editing, post-production) using 3D Studio Max, Adobe Premiere and Adobe After Effects, ","Creating Flash components,","Designing and building websites based on HTML, CSS and Flash / ActionScript."]}],n0=()=>{const{t:e,i18n:t}=fr(),{brightMode:n}=z.useContext(Nn),{isMinRes:r}=z.useContext(Tn),i=z.useId(),o=z.useRef(),[a,s]=z.useState(0),[l,u]=z.useState({top:0,height:0}),[h,f]=z.useState(!1),[d,m]=z.useState(!1);z.useEffect(()=>{m(!0)},[]);const v=(c,g)=>{u({top:c.target.offsetTop-5,height:c.target.offsetHeight+10}),f(!0),setTimeout(()=>{s(g),f(!1)},200)},S=Ai.map((c,g)=>w(h0,{id:`id-${g}`,brightmode:n?1:void 0,isMinRes:r,className:"btn",style:g===a?{background:"#26214720"}:{background:"none"},onClick:y=>v(y,g),children:w("p",{style:r?{...F.maxRes.h1}:{...F.maxRes.p},children:r?`#${g+1}`:c.jobTitle})},`${i}-${g}`)),P=e(`Experience.${a+1}.Description`,{returnObjects:!0}).map((c,g)=>w("li",{children:w("p",{style:r?{...F.minRes.p}:{...F.maxRes.p},children:c})},`${i}-${g}`)),p=()=>I(p0,{isDescriptionFadeIn:h,children:[w("h3",{style:r?{...F.minRes.h3}:{...F.maxRes.h3},children:Ai[a].jobTitle}),w("br",{}),w("h4",{style:r?{...F.minRes.h4}:{...F.maxRes.h4},children:w("b",{children:Ai[a].company})}),w("br",{}),w("h4",{style:r?{...F.minRes.h4}:{...F.maxRes.h4},children:Ai[a].period}),w("br",{}),w("ul",{children:P})]});return z.useEffect(()=>{if(!d)u({top:o.current.childNodes[0].offsetTop,height:o.current.childNodes[0].offsetHeight});else{const c=()=>{u({top:o.current.childNodes[a].offsetTop,height:o.current.childNodes[a].offsetHeight})};window.addEventListener("resize",c)}},[]),w(r0,{id:"experience",brightmode:n?1:void 0,children:I(i0,{brightmode:n?1:void 0,children:[w(o0,{brightmode:n?1:void 0,children:w(ye,{bottom:!0,children:n?w("img",{src:"./experience-image-bright.svg"}):w("img",{src:"./experience-image-dark.svg"})})}),I(a0,{children:[I(s0,{children:[w(ye,{right:!0,children:w("h1",{brightmode:n?1:void 0,style:r?{...F.minRes.h1}:{...F.maxRes.h1},children:e("Experience.Title")})}),w(ye,{right:!0,children:w("h2",{brightmode:n?1:void 0,style:r?{...F.minRes.h2}:{...F.maxRes.h2},children:e("Experience.Subtitle")})})]}),w(l0,{children:I(ye,{right:!0,children:[I(c0,{children:[w(f0,{markerStyle:l,children:w("div",{className:"marker"})}),w(u0,{children:w("div",{ref:o,children:S})})]}),w(d0,{brightmode:n?1:void 0,children:p()})]})})]})]})})},r0=N.div`
     width: 100%;
-    height: 100vh;
     display: flex;
     background: ${e=>e.brightmode?Oe.brightMode.background:Oe.darkMode.background};
     transition: 0.2s;
 `,i0=N.div`
     margin-left: 50px;
     margin-right: 50px;
-    margin-top: 20px;
+    margin-top: 80px;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -425,10 +425,10 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
     }
 
     @media (max-width: 768px) {
-        height: 100vh;
+        height: 160vh;
         margin-left: 20px;
         margin-right: 20px;
-        margin-top: 40px;
+        margin-top: 80px;
         flex-direction: column;
         justify-content: center;
         gap: 30px;
@@ -448,7 +448,17 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
         display: none;
         p {
             text-align: right;
+        }   
+    }
+    @media (max-width: 768px) {
+        img{
+            min-width: 320px;
+            max-height: 65vh;
         }
+        display: flex;
+        p {
+            text-align: right;
+        }   
     }
 `,a0=N.div`
     width: 65%;
