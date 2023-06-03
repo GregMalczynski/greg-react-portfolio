@@ -685,7 +685,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
         opacity: 0.6;
         scale: 1.1;
     }
-`,ni={_origin:"https://api.emailjs.com"},O0=(e,t="https://api.emailjs.com")=>{ni._userID=e,ni._origin=t},Rp=(e,t,n)=>{if(!e)throw"The public key is required. Visit https://dashboard.emailjs.com/admin/account";if(!t)throw"The service ID is required. Visit https://dashboard.emailjs.com/admin";if(!n)throw"The template ID is required. Visit https://dashboard.emailjs.com/admin/templates";return!0};class jc{constructor(t){this.status=t?t.status:0,this.text=t?t.responseText:"Network Error"}}const Np=(e,t,n={})=>new Promise((r,i)=>{const o=new XMLHttpRequest;o.addEventListener("load",({target:a})=>{const s=new jc(a);s.status===200||s.text==="OK"?r(s):i(s)}),o.addEventListener("error",({target:a})=>{i(new jc(a))}),o.open("POST",ni._origin+e,!0),Object.keys(n).forEach(a=>{o.setRequestHeader(a,n[a])}),o.send(t)}),R0=(e,t,n,r)=>{const i=r||ni._userID;return Rp(i,e,t),Np("/api/v1.0/email/send",JSON.stringify({lib_version:"3.11.0",user_id:i,service_id:e,template_id:t,template_params:n}),{"Content-type":"application/json"})},N0=e=>{let t;if(typeof e=="string"?t=document.querySelector(e):t=e,!t||t.nodeName!=="FORM")throw"The 3rd parameter is expected to be the HTML form element or the style selector of form";return t},T0=(e,t,n,r)=>{const i=r||ni._userID,o=N0(n);Rp(i,e,t);const a=new FormData(o);return a.append("lib_version","3.11.0"),a.append("service_id",e),a.append("template_id",t),a.append("user_id",i),Np("/api/v1.0/email/send-form",a)},_0={init:O0,send:R0,sendForm:T0},j0=({brightmode:e,handleSendMessage:t})=>{const n=z.useRef(),[r,i]=z.useState(!1),[o,a]=z.useState(""),[s,l]=z.useState(""),[u,h]=z.useState(""),[f,d]=z.useState({userName:"",userEmail:"",userMessage:""}),[m,v]=z.useState({userName:!1,userEmail:!1,userMessage:!1});z.useEffect(()=>{i(!0)},[]);const S=g=>{a(g.target.value)},P=g=>{l(g.target.value)},p=g=>{h(g.target.value)};z.useEffect(()=>{r?!o||o==""?(d({...f,userName:"Name cant be empty"}),n.current[0].style.border="2px solid #F2BB57"):o.length<3||o.length>22?(d({...f,userName:"Name length should be between ( 3 - 22 ) characters."}),v({...m,userName:!1}),n.current[0].style.border="2px solid #F2BB57"):(d({...f,userName:""}),v({...m,userName:!0}),n.current[0].style.border="none"):d({...f,userName:""})},[o]),z.useEffect(()=>{const g={textFormat:/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/};r?!s||s==""?(d({...f,userEmail:"Email cant be empty"}),n.current[1].style.border="2px solid #F2BB57"):s.match(g.textFormat)?(d({...f,userEmail:""}),v({...m,userEmail:!0}),n.current[1].style.border="none"):(d({...f,userEmail:"Wrong email adress format."}),v({...m,userEmail:!1}),n.current[1].style.border="2px solid #F2BB57"):d({...f,userEmail:""})},[s]),z.useEffect(()=>{r?!u||u==""?(d({...f,userMessage:"Message cant be empty"}),v({...m,userMessage:!1}),n.current[2].style.border="2px solid #F2BB57"):(d({...f,userMessage:""}),v({...m,userMessage:!0}),n.current[2].style.border="none"):(d({...f,userMessage:""}),n.current[2].style.border="none")},[u]);const c=g=>{g.preventDefault(),t(),m.userName&&m.userEmail&&m.userMessage?(_0.sendForm("service_5gq9e2o","template_rpqhkug",n.current,"0lu3pFJXvIbNyu3Xc").then(y=>{console.log(y.text)},y=>{console.log(y.text)}),setTimeout(()=>{a(""),l(""),h(""),i(!0)},3e3)):(n.current[0].focus(),m.userName?n.current[0].style.border="none":n.current[0].style.border="2px solid #F2BB57",m.userEmail?n.current[1].style.border="none":n.current[1].style.border="2px solid #F2BB57",m.userMessage?n.current[2].style.border="none":n.current[2].style.border="2px solid #F2BB57",console.log("Incorrect form"))};return w(L0,{children:I(z0,{ref:n,children:[w(Lc,{isError:f.userName.length,brightmode:e?1:void 0,type:"text",name:"user_name",placeholder:"name",value:o,onChange:S}),w("p",{children:f.userName}),w(Lc,{isError:f.userEmail.length,brightmode:e?1:void 0,type:"email",name:"user_email",placeholder:"email",value:s,onChange:P}),w("p",{children:f.userEmail}),w(A0,{isError:f.userMessage.length,brightmode:e?1:void 0,name:"message",placeholder:"message",value:u,onChange:p}),w("p",{children:f.userMessage}),w(D0,{brightmode:e?1:void 0,onClick:c,children:w("p",{children:"Send Message"})})]})})},L0=N.div`
+`,ni={_origin:"https://api.emailjs.com"},O0=(e,t="https://api.emailjs.com")=>{ni._userID=e,ni._origin=t},Rp=(e,t,n)=>{if(!e)throw"The public key is required. Visit https://dashboard.emailjs.com/admin/account";if(!t)throw"The service ID is required. Visit https://dashboard.emailjs.com/admin";if(!n)throw"The template ID is required. Visit https://dashboard.emailjs.com/admin/templates";return!0};class jc{constructor(t){this.status=t?t.status:0,this.text=t?t.responseText:"Network Error"}}const Np=(e,t,n={})=>new Promise((r,i)=>{const o=new XMLHttpRequest;o.addEventListener("load",({target:a})=>{const s=new jc(a);s.status===200||s.text==="OK"?r(s):i(s)}),o.addEventListener("error",({target:a})=>{i(new jc(a))}),o.open("POST",ni._origin+e,!0),Object.keys(n).forEach(a=>{o.setRequestHeader(a,n[a])}),o.send(t)}),R0=(e,t,n,r)=>{const i=r||ni._userID;return Rp(i,e,t),Np("/api/v1.0/email/send",JSON.stringify({lib_version:"3.11.0",user_id:i,service_id:e,template_id:t,template_params:n}),{"Content-type":"application/json"})},N0=e=>{let t;if(typeof e=="string"?t=document.querySelector(e):t=e,!t||t.nodeName!=="FORM")throw"The 3rd parameter is expected to be the HTML form element or the style selector of form";return t},T0=(e,t,n,r)=>{const i=r||ni._userID,o=N0(n);Rp(i,e,t);const a=new FormData(o);return a.append("lib_version","3.11.0"),a.append("service_id",e),a.append("template_id",t),a.append("user_id",i),Np("/api/v1.0/email/send-form",a)},_0={init:O0,send:R0,sendForm:T0},j0=({brightmode:e,handleSendMessage:t})=>{const n=z.useRef(),[r,i]=z.useState(!1),[o,a]=z.useState(""),[s,l]=z.useState(""),[u,h]=z.useState(""),[f,d]=z.useState({userName:"",userEmail:"",userMessage:""}),[m,v]=z.useState({userName:!1,userEmail:!1,userMessage:!1});z.useEffect(()=>{i(!0)},[]);const S=g=>{a(g.target.value)},P=g=>{l(g.target.value)},p=g=>{h(g.target.value)};z.useEffect(()=>{r?!o||o==""?(d({...f,userName:"Name cant be empty"}),n.current[0].style.border="2px solid #F2BB57"):o.length<3||o.length>22?(d({...f,userName:"Name length should be between ( 3 - 22 ) characters."}),v({...m,userName:!1}),n.current[0].style.border="2px solid #F2BB57"):(d({...f,userName:""}),v({...m,userName:!0}),n.current[0].style.border="none"):d({...f,userName:""})},[o]),z.useEffect(()=>{const g={textFormat:/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/};r?!s||s==""?(d({...f,userEmail:"Email cant be empty"}),n.current[1].style.border="2px solid #F2BB57"):s.match(g.textFormat)?(d({...f,userEmail:""}),v({...m,userEmail:!0}),n.current[1].style.border="none"):(d({...f,userEmail:"Wrong email adress format."}),v({...m,userEmail:!1}),n.current[1].style.border="2px solid #F2BB57"):d({...f,userEmail:""})},[s]),z.useEffect(()=>{r?!u||u==""?(d({...f,userMessage:"Message cant be empty"}),v({...m,userMessage:!1}),n.current[2].style.border="2px solid #F2BB57"):(d({...f,userMessage:""}),v({...m,userMessage:!0}),n.current[2].style.border="none"):(d({...f,userMessage:""}),n.current[2].style.border="none")},[u]);const c=g=>{g.preventDefault(),m.userName&&m.userEmail&&m.userMessage?(_0.sendForm("service_5gq9e2o","template_rpqhkug",n.current,"0lu3pFJXvIbNyu3Xc").then(y=>{console.log(y.text)},y=>{console.log(y.text)}),t(),setTimeout(()=>{a(""),l(""),h(""),i(!0)},3e3)):(n.current[0].focus(),m.userName?n.current[0].style.border="none":n.current[0].style.border="2px solid #F2BB57",m.userEmail?n.current[1].style.border="none":n.current[1].style.border="2px solid #F2BB57",m.userMessage?n.current[2].style.border="none":n.current[2].style.border="2px solid #F2BB57",console.log("Incorrect form"))};return w(L0,{children:I(z0,{ref:n,children:[w(Lc,{isError:f.userName.length,brightmode:e?1:void 0,type:"text",name:"user_name",placeholder:"name",value:o,onChange:S}),w("p",{children:f.userName}),w(Lc,{isError:f.userEmail.length,brightmode:e?1:void 0,type:"email",name:"user_email",placeholder:"email",value:s,onChange:P}),w("p",{children:f.userEmail}),w(A0,{isError:f.userMessage.length,brightmode:e?1:void 0,name:"message",placeholder:"message",value:u,onChange:p}),w("p",{children:f.userMessage}),w(D0,{brightmode:e?1:void 0,onClick:c,children:w("p",{children:"Send Message"})})]})})},L0=N.div`
     min-width: 320px;
 `,z0=N.form`
     display: flex;
@@ -872,7 +872,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
         font-size: 22px;
         color: #ffffff;
     }
-`,G0=()=>{const{t:e,i18n:t}=fr(),{brightMode:n}=z.useContext(Nn),{isMinRes:r}=z.useContext(Tn),[i,o]=z.useState(!1),[a,s]=z.useState(!1),[l,u]=z.useState(!1),h=()=>{o(!0),setTimeout(()=>{o(!1),s(!0),u(!0),(()=>setTimeout(()=>{s(!1),u(!1)},3500))()},3e3)};return I(K0,{id:"contact",brightmode:n?1:void 0,children:[I(ny,{showMessageSend:a,children:[w(ry,{showMessageSend:a,children:w($0,{})}),w(iy,{showBubble:l,children:w(U0,{})}),w(oy,{messageSend:i,children:w(M0,{})})]}),w(J0,{brightmode:n?1:void 0,children:I(Q0,{children:[w(ye,{left:!0,children:w(zc,{children:w("h1",{brightmode:n?1:void 0,style:r?{...F.minRes.h1}:{...F.maxRes.h1},children:e("Contact.Title")})})}),w(ye,{right:!0,children:w(zc,{children:w("h2",{brightmode:n?1:void 0,style:r?{...F.minRes.h2}:{...F.maxRes.h2},children:e("Contact.Subtitle")})})}),w(ye,{left:!0,children:w(ey,{children:n?w("img",{src:"./contact-image-bright.svg"}):w("img",{src:"./contact-image.svg"})})}),I(Y0,{children:[I(X0,{children:[w("p",{style:r?{...F.minRes.p}:{...F.maxRes.p},children:e("Contact.Description")}),I(q0,{children:[w("a",{href:"https://www.linkedin.com/in/grzegorz-malczynski",target:"_blank",children:w("img",{src:"./ico-linked-dark.svg"})}),w("a",{href:"https://github.com/GregMalczynski",target:"_blank",children:w("img",{src:"./ico-github-dark.svg"})}),w("a",{href:"https://www.codewars.com/users/GregoryMalczynski",target:"_blank",children:w("img",{src:"./ico-codewarz-dark.svg"})})]})]}),w(Z0,{children:w(j0,{brightmode:n?1:void 0,handleSendMessage:h})})]}),I(ty,{children:[w("p",{style:{fontSize:"10px"},children:"Project / Draw / Designed / Code"}),w("p",{style:{fontSize:"10px"},children:"By Greg"})]})]})})]})},K0=N.div`
+`,G0=()=>{const{t:e,i18n:t}=fr(),{brightMode:n}=z.useContext(Nn),{isMinRes:r}=z.useContext(Tn),[i,o]=z.useState(!1),[a,s]=z.useState(!1),[l,u]=z.useState(!1),h=()=>{o(!0),setTimeout(()=>{o(!1),s(!0),u(!0),(()=>setTimeout(()=>{s(!1),u(!1)},3500))()},3e3)};return I(K0,{id:"contact",brightmode:n?1:void 0,children:[w(oy,{messageSend:i,children:w(M0,{})}),I(ny,{showMessageSend:a,children:[w(ry,{showMessageSend:a,children:w($0,{})}),w(iy,{showBubble:l,children:w(U0,{})})]}),w(J0,{brightmode:n?1:void 0,children:I(Q0,{children:[w(ye,{left:!0,children:w(zc,{children:w("h1",{brightmode:n?1:void 0,style:r?{...F.minRes.h1}:{...F.maxRes.h1},children:e("Contact.Title")})})}),w(ye,{right:!0,children:w(zc,{children:w("h2",{brightmode:n?1:void 0,style:r?{...F.minRes.h2}:{...F.maxRes.h2},children:e("Contact.Subtitle")})})}),w(ye,{left:!0,children:w(ey,{children:n?w("img",{src:"./contact-image-bright.svg"}):w("img",{src:"./contact-image.svg"})})}),I(Y0,{children:[I(X0,{children:[w("p",{style:r?{...F.minRes.p}:{...F.maxRes.p},children:e("Contact.Description")}),I(q0,{children:[w("a",{href:"https://www.linkedin.com/in/grzegorz-malczynski",target:"_blank",children:w("img",{src:"./ico-linked-dark.svg"})}),w("a",{href:"https://github.com/GregMalczynski",target:"_blank",children:w("img",{src:"./ico-github-dark.svg"})}),w("a",{href:"https://www.codewars.com/users/GregoryMalczynski",target:"_blank",children:w("img",{src:"./ico-codewarz-dark.svg"})})]})]}),w(Z0,{children:w(j0,{brightmode:n?1:void 0,handleSendMessage:h})})]}),I(ty,{children:[w("p",{style:{fontSize:"10px"},children:"Project / Draw / Designed / Code"}),w("p",{style:{fontSize:"10px"},children:"By Greg"})]})]})})]})},K0=N.div`
     width: 100%;
     display: flex;
     background: ${e=>e.brightmode?Oe.brightMode.background:Oe.darkMode.background};
@@ -977,41 +977,44 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
     
 `,ny=N.div`
     width: 100%;
+    height: 100vh;
     position: absolute;
-    visibility: ${e=>(e.showMessageSend,"visible")};
+    display: flex;
+    justify-content: flex-end;
+    visibility: ${e=>e.showMessageSend?"visible":"hidden"};
     z-index: 21;
+    overflow-x: hidden;
 `,ry=N.div` 
-    width: 100%;
+    width: 160px;
     position: absolute;
     display: flex;
     align-items: right;
     justify-content: flex-end;
     margin-top: 50vh;
-    transform: ${e=>(e.showMessageSend,"translateX(0px)")};
+    transform: ${e=>e.showMessageSend?"translateX(0px)":"translateX(200px)"};
     transition: 0.2s;
-    overflow: hidden;
+    z-index: 20;
 `,iy=N.div`
-    width: 100%;
-    position: absolute;
+    width: 140px;
+    position: relative;
     display: flex;
     align-items: right;
     justify-content: flex-end;
     margin-top: 50vh;
-    transform: ${e=>(e.showBubble,"translateX(0px)")};
+    transform: ${e=>e.showBubble?"translateX(-130px) translateY(-150px)":"translateX(200px) translateY(-150px)"};
     transition: 0.6s;
-    overflow: hidden;
+    z-index: 19;
 `,oy=N.div`
-    width: 100%;
+    width: 100vw;
     position: absolute;
-    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 50vh;
+    margin-top: 75vh;
     opacity: ${e=>e.messageSend?"1":"0"};
     visibility: ${e=>e.messageSend?"visible":"hidden"};
     transition: 0.4s;
-    overflow: hidden;
+    z-index: 18;
 `,ay="./sounds/zhane-rl.mp3";new Audio(ay);N.div`
     position: fixed;
     display: flex;
