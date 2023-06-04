@@ -129,7 +129,7 @@ const Container = styled.div`
     }
 
     @media (max-width: 768px) {
-        margin-top: 6vh;
+        margin-top: 20px;
         margin-left: 20px;
         margin-right: 20px;
         flex-direction: column;

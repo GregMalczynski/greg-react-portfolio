@@ -74,6 +74,7 @@ const Wrapper = styled.div`
     transition: 0.2s;
 `
 const Container = styled.div`
+    margin-top: 80px;
     margin-left: 5.5vw;
     margin-right: 5.5vw;
     width: 100%;

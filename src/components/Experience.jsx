@@ -126,7 +126,6 @@ export default Experience;
 
 const Wrapper = styled.div`
     width: 100%;
-    height: 100vh;
     display: flex;
     background: ${props => props.brightmode? bgColorModeData.brightMode.background : bgColorModeData.darkMode.background};
     transition: 0.2s;
@@ -134,7 +133,7 @@ const Wrapper = styled.div`
 const Container = styled.div`
     margin-left: 50px;
     margin-right: 50px;
-    margin-top: 20px;
+    margin-top: 80px;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -160,10 +159,10 @@ const Container = styled.div`
     }
 
     @media (max-width: 768px) {
-        height: 100vh;
+        max-height: 160vh;
         margin-left: 20px;
         margin-right: 20px;
-        margin-top: 40px;
+        margin-top: 80px;
         flex-direction: column;
         justify-content: center;
         gap: 30px;
@@ -184,7 +183,17 @@ const LeftSide = styled.div`
         display: none;
         p {
             text-align: right;
+        }   
+    }
+    @media (max-width: 768px) {
+        img{
+            min-width: 320px;
+            max-height: 65vh;
         }
+        display: flex;
+        p {
+            text-align: right;
+        }   
     }
 `
 const RightSide = styled.div`
